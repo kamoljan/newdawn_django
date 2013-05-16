@@ -1,0 +1,10 @@
+INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Car", 1, "Car", 1);
+INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Pet", 2, "Pet", 1);
+INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Household Items", 3, "Household Items", 1);
+INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Fashion", 4, "Fashion", 1);
+INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Houses", 5, "Houses", 1);
+INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Sports", 6, "Sports", 1);
+INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Mobile Phones", 7, "Mobile Phones", 1);
+INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Babies/ Children", 8, "Babies/ Children", 1);
+INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Other Electronics", 9, "Other Electronics", 1);
+INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Hobbies & Collectibles", 10, "Hobbies & Collectibles", 1);

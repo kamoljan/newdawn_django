@@ -10,7 +10,7 @@ class Category(models.Model):
 	enabled = models.BooleanField(default=True)
 
 	class Meta:
-		#db_table = 'www_categories'
+		db_table = 'www_categories'
 		ordering = ['position']
 		verbose_name = "Category"
 		verbose_name_plural = "Categories"
@@ -33,9 +33,20 @@ class Ad(models.Model):
 	AD_STATUS = ((0, 'Published'), (1, 'Refused'), (2, 'Sold'), (3, 'Deleted'))
 	ad_status = models.IntegerField(choices=AD_STATUS, default=0, db_index=True)
 	user_ip = models.GenericIPAddressField()
+	user_phone = models.CharField(max_length=32, validators=[MinLengthValidator(9), MaxLengthValidator(32)])
 	user_email = models.EmailField()
 	latitude = models.FloatField(blank=False, null=False)
 	longitude = models.FloatField(blank=False, null=False)
+	secret_token = models.CharField(max_length=64)
+	created_time = models.DateTimeField(auto_now_add=True)
+	updated_time = models.DateTimeField(auto_now=True)
+	moderated_time = models.DateTimeField(auto_now=False, null=True, blank=True)
+
+	class Meta:
+		db_table = 'www_ads'
+		ordering = ['-created_time']
+		verbose_name = "Advertisement"
+		verbose_name_plural = "Advertisements"
 
 	def __unicode__(self):
 		return self.subject
