@@ -1,8 +1,7 @@
 from django.contrib import messages
 from django.views.generic import (CreateView, UpdateView, DetailView)
 from django.views.generic.edit import FormView
-from django.template import RequestContext
-from django.forms.models import modelformset_factory
+from django.http import HttpResponseRedirect
 
 from braces.views import LoginRequiredMixin
 from .models import Ad
@@ -29,14 +28,19 @@ class AdFormView(LoginRequiredMixin, AdActionMixin, FormView):
 	template_name = 'ad/ad_form.html'
 	action = "formed"
 
-	def form_invalid(self, form):
-		# Dome something
-		print(self.request.POST)
-		return super(AdFormView, self).form_invalid(form)
-
 	def form_valid(self, form):
-		print(self.request.POST)
-		return super(AdFormView, self).form_valid(form)
+		form = AdForm(self.request.POST)
+		ad = form.save(commit=False)
+		ad.image_fid = 'image_fid.lah'
+		ad.thumb_fid = 'thumb_fid.lah'
+		ad.ad_status = 1
+		ad.user_ip = self.request.META['REMOTE_ADDR']
+		ad.latitude = 2
+		ad.longitude = 3
+		ad.secret_token = 'secretlah'
+		ad.save()
+		return HttpResponseRedirect('/')  # Redirect after POST
+		#return super(AdFormView, self).form_valid(form)
 
 	def get(self, request):
 		return self.render_to_response({'form': AdForm()})
@@ -48,21 +52,6 @@ class AdCreateView(LoginRequiredMixin, AdActionMixin, CreateView):
 	action = "created"
 	fields = ['']
 	#AdFormSet = modelformset_factory(Ad)
-
-	def form_invalid(self, form):
-		# Dome something
-		return super(AdCreateView, self).form_valid(form)
-
-	def post(self, request):
-		self.object = None
-		return super(AdCreateView, self).post(request)
-
-	def get(self, request):
-		self.object = None
-		return super(AdCreateView, self).get
-
-	# def action(self):
-	# 	return render(request, 'polls/detail.html', {'poll': p, 'error_message': "You didn't select a choice."})
 
 
 class AdUpdateView(LoginRequiredMixin, AdActionMixin, UpdateView):
