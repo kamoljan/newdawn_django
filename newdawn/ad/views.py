@@ -1,11 +1,13 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from django.contrib import messages
-from django.views.generic import (CreateView, UpdateView, DetailView)
 from django.views.generic.edit import FormView
 from django.http import HttpResponseRedirect
 
 from braces.views import LoginRequiredMixin
-from .models import Ad
 from .forms import AdForm
+from common.libs.sushiapi import save_image_to_sushi_with_string
 
 
 class AdActionMixin(object):
@@ -29,36 +31,15 @@ class AdFormView(LoginRequiredMixin, AdActionMixin, FormView):
 	action = "formed"
 
 	def form_valid(self, form):
-		form = AdForm(self.request.POST)
+		form = AdForm(self.request.POST, self.request.FILES)
 		ad = form.save(commit=False)
-		ad.image_fid = 'image_fid.lah'
-		ad.thumb_fid = 'thumb_fid.lah'
-		ad.ad_status = 1
+		ad.image_fid = save_image_to_sushi_with_string(self.request.FILES['image_fid'])
+		ad.thumb_fid = ad.image_fid  # TODO: fix it later
 		ad.user_ip = self.request.META['REMOTE_ADDR']
-		ad.latitude = 2
-		ad.longitude = 3
-		ad.secret_token = 'secretlah'
+		ad.secret_token = 'secretlah'  # TODO: implement it later
 		ad.save()
 		return HttpResponseRedirect('/')  # Redirect after POST
 		#return super(AdFormView, self).form_valid(form)
 
 	def get(self, request):
 		return self.render_to_response({'form': AdForm()})
-
-
-class AdCreateView(LoginRequiredMixin, AdActionMixin, CreateView):
-	form_class = AdForm
-	model = Ad
-	action = "created"
-	fields = ['']
-	#AdFormSet = modelformset_factory(Ad)
-
-
-class AdUpdateView(LoginRequiredMixin, AdActionMixin, UpdateView):
-	form_class = AdForm
-	model = Ad
-	action = "updated"
-
-
-class AdDetailView(DetailView):
-	model = Ad

@@ -8,12 +8,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class AdAdmin(admin.ModelAdmin):
-	list_display = ('id', 'subject',
-	                'user_email', 'user_phone',
-	                'user_ip',
-	                'category', 'created_time',
-	                'updated_time',
-	                'ad_status')
+	list_display = ('id', 'subject', 'user_email', 'user_phone', 'user_ip', 'category', 'created_time', 'updated_time', 'ad_status')
 	search_fields = ('subject', 'user_email')
 	list_filter = ('ad_status', )
 	actions_on_top = True

@@ -2,12 +2,53 @@
 
 {% block title %}Post Ad{% endblock %}
 
+{% block extra_css %}
+    <style>
+		.error { color: red;}
+		ul { display: none;}
+	</style>
+{% endblock extra_css %}
+
 {% block page_title %} Sell it {% endblock page_title %}
 
 {% block content %}
-<form enctype="multipart/form-data" action="." method="post">
-    {% csrf_token %}
+<form enctype="multipart/form-data" action="." method="post">{% csrf_token %}
     {{ form.as_p }}
+	<p id="result">
+		<ul id="coordinates">
+			<li id="latitude"></li>
+			<li id="longitude"></li>
+		</ul>
+	</p>
     <button type="submit">Sell it</button>
+
 </form>
 {% endblock content %}
+
+{% block extra_js %}
+	<script src="{{ STATIC_URL }}js/geoPosition.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		if(geoPosition.init()){
+			geoPosition.getCurrentPosition(success_callback,error_callback,{enableHighAccuracy:true});
+		}
+		else{
+			document.getElementById('result').innerHTML = '<span class="error">Functionality not available</span>';
+		}
+
+		function success_callback(p)
+		{
+			var latitude = parseFloat( p.coords.latitude ).toFixed(2);
+			var longitude = parseFloat( p.coords.longitude ).toFixed(2);
+			document.getElementById('latitude').innerHTML = '<span class="information">Latitude:</span>' + latitude;
+            document.getElementById('id_latitude').value = latitude;
+			document.getElementById('longitude').innerHTML = '<span class="information">Longitude:</span>' + longitude;
+            document.getElementById('id_longitude').value = longitude;
+			document.getElementById('coordinates').style.display = 'block';
+		}
+
+		function error_callback(p)
+		{
+			document.getElementById('result').innerHTML = '<span class="error">' + p.message + '</span>';
+		}
+	</script>
+{% endblock extra_js %}
