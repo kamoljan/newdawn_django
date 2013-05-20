@@ -182,7 +182,6 @@ DJANGO_APPS = (
     # Admin panel and documentation:
     'django.contrib.admin',
     # 'django.contrib.admindocs',
-    'ad',
 )
 
 THIRD_PARTY_APPS = (
@@ -191,9 +190,7 @@ THIRD_PARTY_APPS = (
 )
 
 # Apps specific for this project go here.
-LOCAL_APPS = (
-	'common',
-)
+LOCAL_APPS = ('ad', 'common', 'search')
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

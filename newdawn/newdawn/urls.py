@@ -19,4 +19,5 @@ urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^ad/', include('ad.urls', namespace='ad')),
+    url(r'^search/$', TemplateView.as_view(template_name='search/search_form.html'), name='search'),
 )
