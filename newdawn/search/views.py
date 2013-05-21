@@ -63,7 +63,7 @@ def ad_search_get_context(request, args):
 	context = {'args': args, 'ads': [], 'total': [0, 0, 0]}
 
 	res = []
-	res.append(sp.Query(args['query'].encode('utf-8'), 'bazr_ad,delta'))
+	res.append(sp.Query(args['query'].encode('utf-8'), 'newdawn_ad,delta'))
 	if res and res.has_key('status') and res['status'] == 0:
 		ads = []
 		for match in res['matches']:

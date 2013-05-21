@@ -25,14 +25,25 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': normpath(join(DJANGO_ROOT, 'default.db')),
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'newdawn',
+        'USER': 'root',
+        'PASSWORD': '123456',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'OPTIONS': {'init_command': 'SET storage_engine=INNODB'}
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': normpath(join(DJANGO_ROOT, 'default.db')),
+#         'USER': '',
+#         'PASSWORD': '',
+#         'HOST': '',
+#         'PORT': '',
+#     }
+# }
 ########## END DATABASE CONFIGURATION
 
 
@@ -64,7 +75,7 @@ MIDDLEWARE_CLASSES += (
 ########## SUSHI CONFIGURATION
 SUSHI_SECRET_KEY = '85d617c7e82c1ec51ee00bec5dca17e4'
 SUSHI_URL = '127.0.0.1:8081'
-SUSHI_PUBLIC_URL = 'http://sushi.iyocdn.com/'
+SUSHI_PUBLIC_URL = 'http://sushi.colekcdn.com/'
 ########## END SUSHI CONFIGURATION
 
 ########## SPHINX CONFIGURATION

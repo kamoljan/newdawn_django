@@ -1,0 +1,49 @@
+for linux user, we only test newdawn on ubuntu-server 10.04 LTS.
+
+Our environments:
+
+apt-get install openssh-server
+apt-get install build-essential autoconf automake libtool bison flex vim cmake sysstat
+apt-get install git-core git-completion git-doc subversion 
+apt-get install zlib1g-dev zlib1g-dbg
+apt-get install libpcre3-dev libpcre3-dbg
+apt-get install libssl-dev libssl0.9.8-dbg
+apt-get install libncurses5-dev libncurses5-dbg
+apt-get install python-dev python-dbg
+
+
+
+for mac os x:
+
+cd temp
+curl -C - -O 'http://www.ijg.org/files/jpegsrc.v8b.tar.gz'
+tar xzvf jpegsrc.v8b.tar.gz
+cd jpeg-8b/
+./configure
+make
+make test
+sudo make install
+
+cd temp
+curl -C - -O 'http://zlib.net/zlib-1.2.5.tar.gz'
+tar xzvf zlib-1.2.5.tar.gz
+cd zlib-1.2.5/
+./configure
+make
+sudo make install
+
+
+
+for AMI:
+
+yum install git
+yum install gcc gcc-c++ make cmake
+yum install bison flex
+yum install pcre-devel
+yum install libtool sysstat gettext
+yum install ncurses-devel python-devel
+yum install *openssl*
+yum install MySQL-python
+# for PIL
+yum install libjpeg-devel zlib-devel freetype-devel
+
