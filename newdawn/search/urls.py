@@ -3,8 +3,8 @@ from .views import ad_search
 
 urlpatterns = patterns("",
 	url(
-		regex=r'^ad_search$',
+		regex=r'^$',
 		view=ad_search,
-		name="search"
+	    name="search"
 	),
 )

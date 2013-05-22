@@ -22,13 +22,14 @@ def ad_search(request, category=None):
 	'pages': range(0, context['total'], args['limit'])
 	}
 
-	return render_to_response('search/search_form.html', context_instance=RequestContext(request))
+	return render_to_response('search/search_form.html', context, context_instance=RequestContext(request))
 
 
 def ad_search_get_args(request, category=0):
 	category_id = category.id if category else '0'
+	# TODO: put it back later
+	#'category_id': cint(request.GET.get('category_id', category_id)),
 	args = {
-	'category_id': cint(request.GET.get('category_id', category_id)),
 	'query': request.GET.get('query', '').strip(),
 	'limit': cint(request.GET.get('limit', '50')),
 	'sort_by': request.GET.get('sort_by', 'date_desc'),
@@ -41,10 +42,11 @@ def ad_search_get_context(request, args):
 	args['objects'] = {}
 
 	# set category
-	if args['category_id'] and Category.objects.filter(pk=args['category_id'], enabled=True).exists():
-		args['objects']['category'] = Category.objects.get(pk=args['category_id'])
-	else:
-		args['objects']['category'] = None
+	# TODO: put it back later
+	# if args['category_id'] and Category.objects.filter(pk=args['category_id'], enabled=True).exists():
+	# 	args['objects']['category_id'] = Category.objects.get(pk=args['category_id'])
+	# else:
+	# 	args['objects']['category_id'] = None
 
 	# fire a search request
 	sp = SphinxClient()
@@ -60,11 +62,12 @@ def ad_search_get_context(request, args):
 	sp.SetLimits(args['start'], args['limit'], max(args['start'] + args['limit'], 1000))
 
 	# default context
-	context = {'args': args, 'ads': [], 'total': [0, 0, 0]}
+	context = {'args': args, 'ads': [], 'total': 0}
 
-	res = []
-	res.append(sp.Query(args['query'].encode('utf-8'), 'newdawn_ad,delta'))
-	if res and res.has_key('status') and res['status'] == 0:
+	# res = []
+	# res.append(sp.Query(args['query'].encode('utf-8'), 'newdawn_ad,delta'))
+	res = sp.Query(args['query'].encode('utf-8'), 'newdawn_ad,delta')
+	if res:
 		ads = []
 		for match in res['matches']:
 			try:
