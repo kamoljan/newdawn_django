@@ -3,14 +3,14 @@ PYTHON_VERSION=2.7
 
 # MySQL settings
 DBLOGIN=root
-DBPASSWORD=123456
+DBPASSWORD=12345678
 DBCOMMAND=/usr/local/mysql/bin/mysql --user=${DBLOGIN} --password=${DBPASSWORD}
 DBNAME=newdawn
 
 # Super user settings
 SUNAME=admin
 SUEMAIL=kamol@colekaku.com
-SUPASSWORD=123456
+SUPASSWORD=12345678
 
 # runtime
 PID_FILE=${TOPDIR}/var/run/newdawn.pid

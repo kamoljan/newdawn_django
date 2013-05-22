@@ -99,12 +99,12 @@ sleep 5
 echo "DELETE FROM mysql.user WHERE User='';" | bin/mysql -u root
 echo "DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');" | bin/mysql -u root
 echo "DROP DATABASE test;" | bin/mysql -u root
-echo "UPDATE mysql.user SET Password=PASSWORD('123456') WHERE User='root';" | bin/mysql -u root
+echo "UPDATE mysql.user SET Password=PASSWORD('12345678') WHERE User='root';" | bin/mysql -u root
 echo "FLUSH PRIVILEGES;" | bin/mysql -u root
 
 sleep 3
 
-bin/mysqladmin --user=root --password=123456 shutdown
+bin/mysqladmin --user=root --password=12345678 shutdown
 sleep 5
 cd -
 
