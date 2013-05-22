@@ -4,3 +4,14 @@ django-braces==0.2.1
 django-model-utils==1.1.0
 logutils==0.3.3
 South==0.7.6
+django-social-auth==0.7.23
+Imaging==1.1.7
+flup==1.0.2
+MySQL-python==1.2.4b4
+gdata==2.0.17
+pyjade==2.0.2
+python-memcached==1.47
+django-debug-toolbar==0.9.4
+sushi==2.0
+django-discover-runner==0.4
+tornado==3.0.1
