@@ -1,12 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from django.conf import settings
 from django.contrib import messages
-from django.views.generic.edit import FormView
+# from django.views.generic.edit import FormView, CreateView
+from django.views.generic import DetailView, FormView
 from django.http import HttpResponseRedirect
 
 from braces.views import LoginRequiredMixin
 from .forms import AdForm
+from .models import Ad
 from common.libs.sushiapi import save_image_to_sushi_with_string
 
 
@@ -43,3 +46,14 @@ class AdFormView(LoginRequiredMixin, AdActionMixin, FormView):
 
 	def get(self, request):
 		return self.render_to_response({'form': AdForm()})
+
+
+class AdView(LoginRequiredMixin, AdActionMixin, DetailView):
+	model = Ad
+
+	def get_context_data(self, **kwargs):
+		# Call the base implementation first to get a context
+		context = super(AdView, self).get_context_data(**kwargs)
+		# Add in a QuerySet of settings param
+		context['SUSHI_PUBLIC_URL'] = settings.SUSHI_PUBLIC_URL
+		return context
