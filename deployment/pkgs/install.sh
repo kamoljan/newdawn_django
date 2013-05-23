@@ -56,7 +56,7 @@ cd memcached-1.4.15
 make
 make install
 cd -
-rm -rf ./memcached-1.4.5
+rm -rf ./memcached-1.4.15
 
 ############################## Nginx #########################################
 tar xvzf nginx-1.4.0.tar.gz
