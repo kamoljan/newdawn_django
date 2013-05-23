@@ -55,7 +55,7 @@ start: start-fastcgi start-nginx
 #`cd ${TOPDIR}/newdawn/ && django-admin.py compilemessages && cd ${TOPDIR}`
 	@echo NewDawn is running now, make sure your MySQL, Sphinx and Sushi is running.
 	@echo Please add following hosts for staging server\:
-	@echo 127.0.0.1 colekaku.com www.colekaku.com sushi.colekcdn.com static.colekcdn.com
+	@echo 127.0.0.1 colekaku.com www.colekaku.com sushi.colekaku.com static.colekaku.com
 	@echo Visit http\://colekaku.com to access the site
 	@echo Visit http\://colekaku.com/admin to access the admin site
 
@@ -65,7 +65,8 @@ restart: stop start
 
 start-nginx:
 	cp ${TOPDIR}/deployment/conf/nginx/*.conf /usr/local/nginx/conf/
-	sed -i.bak 's:@NEWDAWN_PATH@:${TOPDIR}/newdawn:g' /usr/local/nginx/conf/static.colekcdn.com.conf
+#sed -i.bak 's:@NEWDAWN_PATH@:${TOPDIR}/newdawn:g' /usr/local/nginx/conf/static.colekaku.com.conf	
+	sed -i.bak 's:@NEWDAWN_PATH@:/var/www:g' /usr/local/nginx/conf/static.colekaku.com.conf	
 	sed -i.bak 's:@NEWDAWN_PATH@:${TOPDIR}/newdawn:g' /usr/local/nginx/conf/colekaku.com.conf
 	/usr/local/nginx/sbin/nginx
 
