@@ -1,0 +1,294 @@
+@charset "utf-8";
+
+img, object, embed, video {
+	max-width: 100%;
+}
+/* IE 6 does not support max-width so default to width 100% */
+.ie6 img {
+	width:100%;
+}
+
+
+/* Mobile Layout: 480px and below. */
+@media only screen and (max-width: 480px) {
+.gridContainer {
+	margin-left: auto;
+	margin-right: auto;
+	width: 96%;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+#header {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+	height:62px !important;
+}
+#content {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+.ad-single{    width: 80%;margin: 0 10%;}
+
+.logo span{display: none;}
+.logo{width: 90px;margin:0;}
+.search-div, .nav-div{float: right; margin-left:12px;}
+.nav-icon {
+	background-position: 14px -227px;width:35px !important;margin-top:8px !important}
+.nav-icon:hover{background-position: -37px -227px !important}
+.search{background-position:1px -178px;width:35px !important;margin-top:8px !important}
+.search:hover{background-position:-50px -178px !important;}
+.add-ad a span{display:none;}	
+.add-ad{margin-top:10px !important;}
+.wrapper {
+background: url(../img/h-bg.png) 0px -10px repeat-x !important;
+}
+.content-left-div{
+	width: 100%;
+	}
+.right-sidebar{
+	margin-left: 0;
+	width: 92%;
+	padding:10px 4%;
+	}
+.img-ad{width:100%;}
+.desc{width:100%;margin-left:0;}
+.content-left li a span{display:none;}
+.content-left li a{height: 17px;
+padding-right: 15px;}
+.ad-insert form, .ad-insert h1 {
+width: 90%;
+margin: 0 auto;
+}
+.input-width input,  .input-width textarea{
+	width:97%;
+	}
+.input-width select{
+	width:100%;
+	}
+.nav {
+	left: -197px;
+	}
+.search-input{left: -98px;}
+}
+/* Tablet Layout: 481px to 768px. Inherits styles from: Mobile Layout. */
+
+@media only screen and (min-width: 481px) {
+.gridContainer {
+	width: 450px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin:0 auto;
+}
+#header {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#content {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+.ad-single{width: 212px;margin: 0 6.5px;}
+.logo span{display: none;}
+.logo{width: 136px;margin:5px 0 0 11%;}
+.search-div, .nav-div{float: left;}
+.nav-icon {
+	background-position: 0px 0px;}
+.search{background-position:0 -51px;}
+.add-ad a span{display:block;}
+.content-left-div{
+	width: 100%;
+	}
+.right-sidebar{
+	margin-left: 0;
+	width: 92%;
+	padding:10px 4%;
+	}
+.img-ad{width:100%;}
+.desc{width:100%;margin-left:0;}
+.ad-insert form, .ad-insert h1 {
+width: 80%;
+margin: 0 auto;
+}
+.input-width input,  .input-width textarea{
+	width:315px;
+	}
+.input-width select{
+	width:325px;
+	}
+
+
+}
+@media only screen and (min-width: 760px)  {
+.gridContainer {
+	width: 732px;
+	padding-left:5px;
+	padding-right:5px;
+	margin: auto;
+}
+
+#header {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#content {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+.ad-single{    width: 231px;margin: 0 6.5px;}
+.logo span{display: block;}	
+.logo{width: 250px;margin:5px 0 0 19%;}
+.search-div, .nav-div{float: left;}
+.nav-icon {
+	background-position: 0px 0px;}
+.search{background-position:0 -51px;}
+.add-ad a span{display:block;}
+.content-left-div{
+	width: 70%;
+	}
+.right-sidebar{
+	float: right !important;
+    margin-left: 0;
+    width: 23%;
+	padding:10px 2%;
+	}
+.img-ad{width:100%;}
+.desc{width:100%;margin-left:0;}
+.ad-insert form, .ad-insert h1 {
+width: 80%;
+margin: 0 auto;
+}
+.input-width input,  .input-width textarea{
+	width:500px;
+	}
+.input-width select{
+	width:510px;
+	}
+
+	}
+/* Desktop Layout: 769px to a max of 1232px.  Inherits styles from: Mobile Layout and Tablet Layout. */
+@media only screen and (min-width: 1000px)  {
+	.gridContainer {
+	width: 976px;
+	padding-left: 0.96%;
+	padding-right: 0.96%;
+	margin: auto;
+}
+
+#header {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#content {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+.ad-single{    width: 231px;margin: 0 6.5px;}	
+.logo span{display: block;}
+.logo{width: 250px;margin:5px 0 0 26%;}
+.search-div, .nav-div{float: left;}
+.nav-icon {
+	background-position: 0px 0px;}
+.search{background-position:0 -51px;}
+.add-ad a span{display:block;}
+.content-left-div{
+	width: 70%;
+	}
+.right-sidebar{
+	float: right !important;
+    margin-left: 0;
+    width: 23%;
+	padding:10px 2%;
+	}
+.img-ad{width:50%;}
+.desc{width:47%;margin-left:3%;}
+.content-left li{margin-right:3px !important;}
+.ad-insert form, .ad-insert h1 {
+width: 100%;
+margin: 0 auto;
+}
+.input-width input,  .input-width textarea{
+	width:500px;
+	}
+.input-width select{
+	width:510px;
+	}
+
+	}
+@media only screen and (min-width: 1246px) {
+.gridContainer {
+
+	width: 1220px;
+	padding-left: 0.96%;
+	padding-right: 0.96%;
+	margin: auto;
+}
+
+#header {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#content {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+.ad-single{    width: 231px;margin: 0 6.5px;}
+.logo span{display: block;}
+.logo{width: 250px;margin:5px 0 0 30%;}
+.search-div, .nav-div{float: left;}
+.nav-icon {
+	background-position: 0px 0px;}
+.search{background-position:0 -51px;}
+.add-ad a span{display:block;}
+.content-left-div{
+	width: 70%;
+	}
+.right-sidebar{
+	float: right !important;
+    margin-left: 0;
+    width: 23%;
+	padding:10px 2%;
+	}
+.img-ad{width:55%;}
+.desc{width:42%;margin-left:3%;}	
+.ad-insert form, .ad-insert h1 {
+width: 100%;
+margin: 0 auto;
+}
+.input-width input,  .input-width textarea{
+	width:500px;
+	}
+.input-width select{
+	width:510px;
+	}
+}
