@@ -5,13 +5,25 @@
 {% block page_title %} Search it {% endblock page_title %}
 
 {% block content %}
-<h3>Total {{ total }}</h3>
-<form action="." method="get">
-    {{ form.as_p }}
-    <button type="submit">Search it</button>
-</form>
-{% for ad in ads %}
-    <a class="ad_link" href="{{ WEB_SITE_URL }}ad/{{ ad.id }}">ad.subject</a>
-{% endfor %}
-
+    <form action="." method="get">
+        {{ form.as_p }}
+        <button type="submit">Search it</button>
+    </form>
+    {% for ad in ads %}
+        <a class="ad_link" href="{% url 'ad:view' ad.id %}">{{ ad.subject }}</a>
+        <div class="ad-single">
+            <a class="img" href="{% url 'ad:view' ad.id %}">
+                <img src="{{ SUSHI_PUBLIC_URL }}{{ ad.image_fid }}" alt="title"/>
+            </a>
+            <br />
+            <a class="desc-ad" href="{% url 'ad:view' ad.id %}">{{ ad.body }}</a>
+            <br />
+            <div class="location-categ">
+                Category name
+                <span>
+                    <a class="location sprite" href="#">&nbsp;</a>
+                </span>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock content %}

@@ -28,7 +28,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'newdawn',
         'USER': 'root',
-        'PASSWORD': '123456',
+        'PASSWORD': '12345678',
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'OPTIONS': {'init_command': 'SET storage_engine=INNODB'}
@@ -75,7 +75,7 @@ MIDDLEWARE_CLASSES += (
 ########## SUSHI CONFIGURATION
 SUSHI_SECRET_KEY = '85d617c7e82c1ec51ee00bec5dca17e4'
 SUSHI_URL = '127.0.0.1:8081'
-SUSHI_PUBLIC_URL = 'http://sushi.colekcdn.com/'
+SUSHI_PUBLIC_URL = 'http://sushi.colekaku.com/'
 ########## END SUSHI CONFIGURATION
 
 ########## SPHINX CONFIGURATION
