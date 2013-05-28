@@ -18,12 +18,15 @@ img, object, embed, video {
 	padding-left: 4px;
 	padding-right: 4px;
 }
-
+.nav {
+    margin: 0 auto;
+    padding: 10px 0;
+    width: 100%;
+}
 #header {
 	clear: both;
-	float: left;
-	margin-left: 0;
-	width: 100%;
+	margin: 0 auto;
+	width:96%;
 	display: block;
 	height:62px !important;
 }
@@ -34,8 +37,7 @@ img, object, embed, video {
 	width: 100%;
 	display: block;
 }
-.ad-single{    width: 80%;margin: 0 10%;}
-
+.ad-single{    width: 80%;margin: 0 10% 15px !important;}
 .logo span{display: none;}
 .logo{width: 90px;margin:0;}
 .search-div, .nav-div{float: right; margin-left:12px;}
@@ -86,11 +88,15 @@ margin: 0 auto;
 	padding-right: 5px;
 	margin:0 auto;
 }
+.nav {
+    margin: 0 auto;
+    padding: 10px 0;
+    width: 444px;
+}
 #header {
 	clear: both;
-	float: left;
-	margin-left: 0;
-	width: 100%;
+margin: 0 auto;
+        width:444px;
 	display: block;
 }
 #content {
@@ -138,12 +144,15 @@ margin: 0 auto;
 	padding-right:5px;
 	margin: auto;
 }
-
+.nav {
+    margin: 0 auto;
+    padding: 10px 0;
+    width: 730px;
+}
 #header {
 	clear: both;
-	float: left;
-	margin-left: 0;
-	width: 100%;
+margin: 0 auto;
+        width:730px;
 	display: block;
 }
 #content {
@@ -192,12 +201,15 @@ margin: 0 auto;
 	padding-right: 0.96%;
 	margin: auto;
 }
-
+.nav {
+    margin: 0 auto;
+    padding: 10px 0;
+    width: 970px;
+}
 #header {
 	clear: both;
-	float: left;
-	margin-left: 0;
-	width: 100%;
+margin: 0 auto;
+        width:970px;
 	display: block;
 }
 #content {
@@ -247,13 +259,16 @@ margin: 0 auto;
 	padding-right: 0.96%;
 	margin: auto;
 }
-
+.nav {
+    margin: 0 auto;
+    padding: 10px 0;
+    width: 1220px;
+}
 #header {
 	clear: both;
-	float: left;
-	margin-left: 0;
-	width: 100%;
 	display: block;
+margin: 0 auto;
+    width: 1220px;
 }
 #content {
 	clear: both;
