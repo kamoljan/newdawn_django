@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,10 +17,31 @@
     <![endif]-->
 
     <!-- This file store project specific CSS -->
-    <link href="{{ STATIC_URL }}css/project.css" rel="stylesheet">
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-    <!-- Use this to quickly test CSS changes in a template, 
-        then move to project.css -->
+    <script src="{{ STATIC_URL }}js/jquery-v1.8.2.js"></script>
+    <script src="{{ STATIC_URL }}js/respond.min.js"></script>
+
+<script>
+jQuery(document).ready(function($){
+
+        /* toggle nav */
+        $(".nav-icon").click(function(){
+                $(".nav-div-ul").slideToggle(300);
+
+        });
+
+});
+</script>
+
+    <!-- Use this to quickly test CSS changes in a template, then move to project.css -->
+
+    <!-- http://webpjs.appspot.com
+<script>(function(){var WebP=new Image();WebP.onload=WebP.onerror=function(){
+if(WebP.height!=2){var sc=document.createElement('script');sc.type='text/javascript';sc.async=true;
+var s=document.getElementsByTagName('script')[0];sc.src='{{ STATIC_URL }}js/webpjs-0.0.2.min.js';s.parentNode.insertBefore(sc,s);}};
+WebP.src='data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';})();</script>
+-->
+<script type="text/javascript" src="{{ STATIC_URL }}js/webpjs-0.0.2.min.js"></script>
+    
     {% block extra_css %}{% endblock extra_css %}
   </head>
   <body>
@@ -70,22 +90,9 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{ STATIC_URL }}js/respond.min.js"></script>
-
     <!-- place project specific Javascript in this file -->
     <script src="{{ STATIC_URL }}js/project.js"></script>
-<script>
-jQuery(document).ready(function($){
-
-	/* toggle nav */
-	$(".nav-icon").on("click", function(){
-		$(".nav-div-ul").slideToggle();
-		$(this).toggleClass("active");
-		
-	});
 	
-});
-</script>
     {% block extra_js %}{% endblock extra_js %}
   </body>
 </html>

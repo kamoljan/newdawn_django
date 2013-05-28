@@ -1,22 +1,18 @@
 {% extends "base.html" %}
 
-{% block title %}Post Ad{% endblock %}
+{% block title %} Search ad {% endblock %}
 
 {% block page_title %} Search it {% endblock page_title %}
 
 {% block content %}
-    <form action="." method="get">
-        {{ form.as_p }}
-        <button type="submit">Search it</button>
-    </form>
     {% for ad in ads %}
-        <a class="ad_link" href="{% url 'ad:view' ad.id %}">{{ ad.subject }}</a>
+        {% comment %}<a class="ad_link" href="{% url 'ad:view' ad.id %}">{{ ad.subject }}</a>{% endcomment %}
         <div class="ad-single">
             <a class="img" href="{% url 'ad:view' ad.id %}">
                 <img src="{{ SUSHI_PUBLIC_URL }}{{ ad.image_fid }}" alt="title"/>
             </a>
             <br />
-            <a class="desc-ad" href="{% url 'ad:view' ad.id %}">{{ ad.body }}</a>
+            <a class="desc-ad" href="{% url 'ad:view' ad.id %}">{{ ad.subject }}</a>
             <br />
             <div class="location-categ">
                 Category name
@@ -26,9 +22,9 @@
             </div>
         </div>
     {% endfor %}
+<script src="{{ STATIC_URL }}js/jquery-1.7.1.min.js"></script>
 <script src="{{ STATIC_URL }}js/jquery.masonry.min.js"></script>       
 <script>
-
 $(function(){
     
     $('#content').masonry({
