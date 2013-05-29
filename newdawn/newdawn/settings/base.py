@@ -1,6 +1,5 @@
 """Common settings and globals."""
 
-
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
 
@@ -33,7 +32,7 @@ TEMPLATE_DEBUG = DEBUG
 ########## MANAGER CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = (
-    ('Kamol Mavlonov', 'kamol@colekaku.com'),
+	('Kamol Mavlonov', 'kamol@colekaku.com'),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
@@ -44,14 +43,14 @@ MANAGERS = ADMINS
 ########## DATABASE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    }
+	'default': {
+		'ENGINE': 'django.db.backends.',
+		'NAME': '',
+		'USER': '',
+		'PASSWORD': '',
+		'HOST': '',
+		'PORT': '',
+	}
 }
 ########## END DATABASE CONFIGURATION
 
@@ -100,13 +99,13 @@ STATIC_URL = 'http://static.colekaku.com/'
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = (
-    normpath(join(SITE_ROOT, 'static')),
+	normpath(join(SITE_ROOT, 'static')),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+	'django.contrib.staticfiles.finders.FileSystemFinder',
+	'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 ########## END STATIC FILE CONFIGURATION
 
@@ -121,7 +120,7 @@ SECRET_KEY = r"k8!wzy=9%$&e4q0rsmvev0yo!!22d1dq)ozd8!jq^omkfs3gh0"
 ########## FIXTURE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-FIXTURE_DIRS
 FIXTURE_DIRS = (
-    normpath(join(SITE_ROOT, 'fixtures')),
+	normpath(join(SITE_ROOT, 'fixtures')),
 )
 ########## END FIXTURE CONFIGURATION
 
@@ -129,25 +128,33 @@ FIXTURE_DIRS = (
 ########## TEMPLATE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
 TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.core.context_processors.tz',
-    'django.contrib.messages.context_processors.messages',
-    'django.core.context_processors.request',
+	'django.contrib.auth.context_processors.auth',
+	'django.core.context_processors.debug',
+	'django.core.context_processors.i18n',
+	'django.core.context_processors.media',
+	'django.core.context_processors.static',
+	'django.core.context_processors.tz',
+	'django.contrib.messages.context_processors.messages',
+	'django.core.context_processors.request',
+
+	# user -- An auth.User instance representing the currently logged-in user
+	# (or an AnonymousUser instance, if the client isn't logged in).
+	# messages -- A list of messages (as strings) that have been set
+	# via the messages framework.
+	# perms -- An instance of django.core.context_processors.PermWrapper,
+	# representing the permissions that the currently logged-in user has.
+	'django.contrib.auth.context_processors.auth',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
 TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
+	'django.template.loaders.filesystem.Loader',
+	'django.template.loaders.app_directories.Loader',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
 TEMPLATE_DIRS = (
-    normpath(join(SITE_ROOT, 'templates')),
+	normpath(join(SITE_ROOT, 'templates')),
 )
 ########## END TEMPLATE CONFIGURATION
 
@@ -155,12 +162,12 @@ TEMPLATE_DIRS = (
 ########## MIDDLEWARE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#middleware-classes
 MIDDLEWARE_CLASSES = (
-    # Default Django middleware.
-    'django.middleware.common.CommonMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
+	# Default Django middleware.
+	'django.middleware.common.CommonMiddleware',
+	'django.contrib.sessions.middleware.SessionMiddleware',
+	'django.middleware.csrf.CsrfViewMiddleware',
+	'django.contrib.auth.middleware.AuthenticationMiddleware',
+	'django.contrib.messages.middleware.MessageMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
 
@@ -173,24 +180,41 @@ ROOT_URLCONF = '%s.urls' % SITE_NAME
 
 ########## APP CONFIGURATION
 DJANGO_APPS = (
-    # Default Django apps:
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    # Useful template tags:
-    # 'django.contrib.humanize',
+	# Default Django apps:
+	'django.contrib.auth',
+	'django.contrib.contenttypes',
+	'django.contrib.sessions',
+	'django.contrib.sites',
+	'django.contrib.messages',
+	'django.contrib.staticfiles',
+	# Useful template tags:
+	# 'django.contrib.humanize',
 
-    # Admin panel and documentation:
-    'django.contrib.admin',
-    # 'django.contrib.admindocs',
+	# Admin panel and documentation:
+	'django.contrib.admin',
+	# 'django.contrib.admindocs',
+)
+
+AUTHENTICATION_BACKENDS = (
+	'social_auth.backends.twitter.TwitterBackend',
+	'social_auth.backends.facebook.FacebookBackend',
+	'social_auth.backends.google.GoogleOAuthBackend',
+	#'social_auth.backends.google.GoogleOAuth2Backend',
+	#'social_auth.backends.google.GoogleBackend',
+	#'social_auth.backends.yahoo.YahooBackend',
+	#'social_auth.backends.contrib.linkedin.LinkedinBackend',
+	#'social_auth.backends.contrib.LiveJournalBackend',
+	#'social_auth.backends.contrib.orkut.OrkutBackend',
+	#'social_auth.backends.contrib.orkut.FoursquareBackend',
+	#'social_auth.backends.OpenIDBackend',
+	'django.contrib.auth.backends.ModelBackend',
 )
 
 THIRD_PARTY_APPS = (
-    # Database migration helpers:
-    'south',
+	# Database migration helpers:
+	'south',
+	# https://github.com/krvss/django-social-auth
+	'social_auth',
 )
 
 # Apps specific for this project go here.
@@ -209,27 +233,27 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
-    'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
-    },
-    'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
-    }
+	'version': 1,
+	'disable_existing_loggers': False,
+	'filters': {
+		'require_debug_false': {
+			'()': 'django.utils.log.RequireDebugFalse'
+		}
+	},
+	'handlers': {
+		'mail_admins': {
+			'level': 'ERROR',
+			'filters': ['require_debug_false'],
+			'class': 'django.utils.log.AdminEmailHandler'
+		}
+	},
+	'loggers': {
+		'django.request': {
+			'handlers': ['mail_admins'],
+			'level': 'ERROR',
+			'propagate': True,
+		},
+	}
 }
 ########## END LOGGING CONFIGURATION
 

@@ -23,4 +23,5 @@ urlpatterns = patterns('',
     url(r'^ad/', include('ad.urls', namespace='ad')),
     #url(r'^search/$', TemplateView.as_view(template_name='search/search_form.html'), name='search'),
     url(r'^search$', include('search.urls', namespace='search')),
+    url(r'^social/', include('social_auth.urls')),
 )
