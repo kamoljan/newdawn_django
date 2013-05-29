@@ -18,7 +18,7 @@ img, object, embed, video {
 	padding-left: 4px;
 	padding-right: 4px;
 }
-.nav {
+.search2 > form,.nav {
     margin: 0 auto;
     padding: 10px 0;
     width: 100%;
@@ -37,7 +37,7 @@ img, object, embed, video {
 	width: 100%;
 	display: block;
 }
-.ad-single{    width: 80%;margin: 0 10% 15px !important;}
+.ad-single{    width: 90%;margin: 0 5% 15px !important;}
 .logo span{display: none;}
 .logo{width: 90px;margin:0;}
 .search-div, .nav-div{float: right; margin-left:12px;}
@@ -74,8 +74,8 @@ margin: 0 auto;
 .input-width select{
 	width:100%;
 	}
-.nav {
-	left: -197px;
+.search2 > form,.nav {width: 86%;
+margin: 0 auto;
 	}
 .search-input{left: -98px;}
 }
@@ -88,7 +88,7 @@ margin: 0 auto;
 	padding-right: 5px;
 	margin:0 auto;
 }
-.nav {
+.search2 > form, .nav {
     margin: 0 auto;
     padding: 10px 0;
     width: 444px;
@@ -144,10 +144,10 @@ margin: 0 auto;
 	padding-right:5px;
 	margin: auto;
 }
-.nav {
+.search2 > form, .nav {
     margin: 0 auto;
     padding: 10px 0;
-    width: 730px;
+    width: 714px;
 }
 #header {
 	clear: both;
@@ -201,7 +201,7 @@ margin: 0 auto;
 	padding-right: 0.96%;
 	margin: auto;
 }
-.nav {
+.search2 > form,.nav {
     margin: 0 auto;
     padding: 10px 0;
     width: 970px;
@@ -249,6 +249,10 @@ margin: 0 auto;
 .input-width select{
 	width:510px;
 	}
+.searchForm #s {
+   padding: 11px 1%;
+width: 98%;
+}
 
 	}
 @media only screen and (min-width: 1246px) {
@@ -259,7 +263,7 @@ margin: 0 auto;
 	padding-right: 0.96%;
 	margin: auto;
 }
-.nav {
+.search2 > form,.nav {
     margin: 0 auto;
     padding: 10px 0;
     width: 1220px;
@@ -306,4 +310,8 @@ margin: 0 auto;
 .input-width select{
 	width:510px;
 	}
+.searchForm #s {
+   padding: 11px 1%;
+width: 98%;
+}
 }

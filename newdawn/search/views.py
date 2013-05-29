@@ -44,11 +44,10 @@ def ad_search_get_context(request, args):
 	args['objects'] = {}
 
 	# set category
-	# TODO: put it back later
-	# if args['category_id'] and Category.objects.filter(pk=args['category_id'], enabled=True).exists():
-	# 	args['objects']['category_id'] = Category.objects.get(pk=args['category_id'])
-	# else:
-	# 	args['objects']['category_id'] = None
+	#if args['category_id'] and Category.objects.filter(pk=args['category_id'], enabled=True).exists():
+	#	args['objects']['category_id'] = Category.objects.get(pk=args['category_id'])
+	#else:
+	#	args['objects']['category_id'] = None
 
 	# fire a search request
 	sp = SphinxClient()

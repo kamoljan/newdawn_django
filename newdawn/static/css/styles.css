@@ -33,6 +33,29 @@ position:relative;
     width: 48px;
 	}	
 .search:hover{background-position: -51px -51px;}	
+
+#searchSubmit {
+    display: none;
+}
+.categories-h {
+    border-bottom: 1px solid #1E5C82;
+color: #FFFFFF;
+    font-size: 19px !important;
+    padding-left: 6px;
+    text-transform: uppercase;
+}
+.nav li form {
+    margin-bottom: 10px;
+}
+.searchForm #s:focus{outline:none;}
+.search2 input{margin-bottom:20px;}
+.search2 input,.searchForm #s {
+ background: #DCDCDC;
+    border: 1px solid #1E5C82;
+    border-radius: 20px 20px 20px 20px;
+    margin-top: 15px;
+    padding: 11px 3%;
+    width: 94%;}
 .nav-icon:hover{background-position: -51px 0px;}
 .logo{
 	float:left;
@@ -398,7 +421,8 @@ padding:10px 5px 9px 35px;
 	min-width:200px;
 	
 }
-.nav-div-ul{
+.search2,.nav-div-ul{
+float:left;
 width:100%;
  background: #246892;
         box-shadow:0px 2px 5px rgba(000,000,000,0.4);;
@@ -407,12 +431,30 @@ width:100%;
         z-index:99998;
 
 }
+
+.nav li a {
+    display: block;
+}
+.nav li a:hover{border-top:#1E5C82 1px solid;
+background:#1E5C82;
+}
 .search-div:hover .search-input{ display:block !important;}
 .nav  ul{padding:0px;margin:0px;}
 .nav li{
+font-size: 15px;
+    line-height: 48px;
 	list-style:none;
 	display:block;
 	}
+.nav li a{padding: 0 10px;
+border-bottom: 1px solid #1E5C82;
+border-top: 1px solid #29719D;
+font-size: 18px;
+}
+.nav li:first-child a{
+border-top:none;
+}
+.nav li:last-child a{border-bottom: none;}
 .search-div{position:relative;
 }	
 .search-input{
@@ -440,7 +482,7 @@ html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-
 
 body { margin: 0; font-size: 14px; line-height: 1.231; }
 body, button, input, select, textarea { font-family: sans-serif; color: #222; }
-a { color: #69BCDC;text-decoration:none; }
+a { color: #fff;text-decoration:none; }
 a:hover { color: #69bcdc; }
 a:focus { outline: thin dotted; }
 
@@ -484,6 +526,6 @@ input:invalid, textarea:invalid { background-color: #f0dddd; }
   h2, h3 { page-break-after: avoid; }
 }
 .content-header {
-    float: left;
+margin: 15px 5px;    float: left;
 }
 .content-header  h1{margin:0px;}

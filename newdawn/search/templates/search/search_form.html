@@ -5,6 +5,7 @@
 {% block page_title %} Search it {% endblock page_title %}
 
 {% block content %}
+
     {% for ad in ads %}
         {% comment %}<a class="ad_link" href="{% url 'ad:view' ad.id %}">{{ ad.subject }}</a>{% endcomment %}
         <div class="ad-single">
@@ -22,17 +23,16 @@
             </div>
         </div>
     {% endfor %}
-<script src="{{ STATIC_URL }}js/jquery-1.7.1.min.js"></script>
-<script src="{{ STATIC_URL }}js/jquery.masonry.min.js"></script>       
+<script src="{{ STATIC_URL }}js/jquery.masonry.min.js"></script>
 <script>
 $(function(){
-    
+
     $('#content').masonry({
       itemSelector: '.ad-single',
       columnWidth: 0,
       isAnimated: true
     });
-    
+
   });
      var $container = $('#content');
 $container.imagesLoaded(function(){
@@ -42,5 +42,6 @@ $container.imagesLoaded(function(){
         gutterWidth: 0
   });
 });
-</script>        
+</script>
+
 {% endblock content %}
