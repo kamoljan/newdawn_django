@@ -11,6 +11,7 @@ from braces.views import LoginRequiredMixin
 from .forms import AdForm
 from .models import Ad
 from common.libs.sushiapi import save_image_to_sushi_with_string
+from common.libs.utils import generate_secret_token
 
 
 class AdActionMixin(object):
@@ -39,7 +40,7 @@ class AdFormView(LoginRequiredMixin, AdActionMixin, FormView):
 		ad.image_fid = save_image_to_sushi_with_string(self.request.FILES['image_fid'])
 		ad.thumb_fid = ad.image_fid  # TODO: fix it later
 		ad.user_ip = self.request.META['REMOTE_ADDR']
-		ad.secret_token = 'secretlah'  # TODO: implement it later
+		ad.secret_token = generate_secret_token()
 		ad.save()
 		return HttpResponseRedirect('/')  # Redirect after POST
 		#return super(AdFormView, self).form_valid(form)
