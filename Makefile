@@ -67,6 +67,7 @@ start-nginx:
 	cp ${TOPDIR}/deployment/conf/nginx/*.conf /usr/local/nginx/conf/
 #sed -i.bak 's:@NEWDAWN_PATH@:${TOPDIR}/newdawn:g' /usr/local/nginx/conf/static.colekaku.com.conf	
 	sed -i.bak 's:@NEWDAWN_PATH@:/var/www:g' /usr/local/nginx/conf/static.colekaku.com.conf	
+	sed -i.bak 's:@NEWDAWN_PATH@:/var/www:g' /usr/local/nginx/conf/sushi.colekaku.com.conf	
 	sed -i.bak 's:@NEWDAWN_PATH@:${TOPDIR}/newdawn:g' /usr/local/nginx/conf/colekaku.com.conf
 	/usr/local/nginx/sbin/nginx
 

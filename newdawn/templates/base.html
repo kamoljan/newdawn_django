@@ -17,7 +17,7 @@
     <![endif]-->
 
     <!-- http://webpjs.appspot.com-->
-    <script type="text/javascript" src="{{ STATIC_URL }}js/webpjs-0.0.2.min.js"></script>
+    <script type="text/javascript" src="{{ SUSHI_PUBLIC_URL }}js/webpjs-0.0.2.min.js"></script>
     <script src="{{ STATIC_URL }}js/jquery-v1.8.2.js"></script>
     {% block extra_css %}{% endblock extra_css %}
 </head>
@@ -33,7 +33,7 @@
             </div>
             <div class="logo"><a class="brand" href="{% url 'index' %}"><span>Colek Aku</span></a></div>
             <div class="add-ad"><a class="sprite" href="{% url 'ad:new' %}"><span>Add New</span></a></div>
-            <div class="logo"><a class="brand" href="{% url "socialauth_begin" "facebook" %}"><span>Login</span></a></div>
+            <div class="add-ad"><a class="sprite" href="{% url "socialauth_begin" "facebook" %}"><span>Login</span></a></div>
         </div>
         <div class="search2">
             <form class="searchForm">
