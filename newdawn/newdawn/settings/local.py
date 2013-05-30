@@ -8,7 +8,7 @@ from base import *
 
 ########## DEBUG CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
-DEBUG = True
+DEBUG = False
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
 TEMPLATE_DEBUG = DEBUG
@@ -101,9 +101,9 @@ TWITTER_CONSUMER_KEY         = ''
 TWITTER_CONSUMER_SECRET      = ''
 
 ########## DJANGO_SOCIAL_AUTH SETTINGS ##########
-LOGIN_URL          = '/auth/login/'
-LOGIN_REDIRECT_URL = '/auth/logged/'
-LOGIN_ERROR_URL    = '/auth/error/'
+#LOGIN_URL          = '/auth/login/'
+#LOGIN_REDIRECT_URL = '/auth/logged/'
+#LOGIN_ERROR_URL    = '/auth/error/'
 
 #SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
 # SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'associate_complete'
