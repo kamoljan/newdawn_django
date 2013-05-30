@@ -3,7 +3,6 @@
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
 
-
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
 DJANGO_ROOT = dirname(dirname(abspath(__file__)))
@@ -17,6 +16,10 @@ SITE_NAME = basename(DJANGO_ROOT)
 # Add our project to our pythonpath, this way we don't need to type our project
 # name in our dotted import paths:
 path.append(DJANGO_ROOT)
+
+# See: https://docs.djangoproject.com/en/1.5/ref/settings/#std:setting-ALLOWED_HOSTS
+ALLOWED_HOSTS = ['www.colekaku.com']
+
 ########## END PATH CONFIGURATION
 
 
