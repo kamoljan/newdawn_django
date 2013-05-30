@@ -1,0 +1,35 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from django.contrib.auth import logout
+from django.http import HttpResponseRedirect
+from django.template import RequestContext
+from django.shortcuts import render_to_response
+from django.conf import settings
+
+from social_auth import __version__ as version
+
+
+def auth_index(request):
+	if request.user.is_authenticated():
+		return auth_logged(request)
+	else:
+		return render_to_response('auth/home.html', {'version': version}, RequestContext(request))
+
+
+def auth_logged(request):
+	names = request.user.social_auth.values_list('provider', flat=True)
+	ctx = dict((name.lower().replace('-', '_'), True) for name in names)
+	ctx['version'] = version
+	ctx['last_login'] = request.session.get('social_auth_last_login_backend')
+	return render_to_response('auth/done.html', ctx, RequestContext(request))
+
+
+def auth_error(request):
+	error_msg = request.session.pop(settings.SOCIAL_AUTH_ERROR_KEY, None)
+	return render_to_response('auth/error.html', {'version': version, 'error_msg': error_msg}, RequestContext(request))
+
+
+def auth_logout(request):
+	logout(request)
+	return HttpResponseRedirect('/')
