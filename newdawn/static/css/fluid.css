@@ -37,7 +37,7 @@ img, object, embed, video {
 	width: 100%;
 	display: block;
 }
-.ad-single{    width: 90%;margin: 0 5% 15px !important;}
+.ad-single{    width:31%;margin: 0 1% 15px !important;}
 .logo span{display: none;}
 .logo{width: 90px;margin:0;}
 .search-div, .nav-div{float: right; margin-left:12px;}
@@ -106,7 +106,7 @@ margin: 0 auto;
 	width: 100%;
 	display: block;
 }
-.ad-single{width: 212px;margin: 0 6.5px;}
+.ad-single{width:137px;margin: 0 6.5px;}
 .logo span{display: none;}
 .logo{width: 136px;margin:5px 0 0 11%;}
 .search-div, .nav-div{float: left;}
