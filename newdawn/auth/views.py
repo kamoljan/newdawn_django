@@ -19,15 +19,15 @@ def auth_index(request):
 
 def auth_logged(request):
 	names = request.user.social_auth.values_list('provider', flat=True)
-	ctx = dict((name.lower().replace('-', '_'), True) for name in names)
-	ctx['version'] = version
-	ctx['last_login'] = request.session.get('social_auth_last_login_backend')
-	return render_to_response('auth/done.html', ctx, RequestContext(request))
+	context = dict((name.lower().replace('-', '_'), True) for name in names)
+	context['version'] = version
+	context['last_login'] = request.session.get('social_auth_last_login_backend')
+	return render_to_response('auth/auth_done.html', context, RequestContext(request))
 
 
 def auth_error(request):
 	error_msg = request.session.pop(settings.SOCIAL_AUTH_ERROR_KEY, None)
-	return render_to_response('auth/error.html', {'version': version, 'error_msg': error_msg}, RequestContext(request))
+	return render_to_response('auth/auth_error.html', {'version': version, 'error_msg': error_msg}, RequestContext(request))
 
 
 def auth_logout(request):

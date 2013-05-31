@@ -101,15 +101,15 @@ TWITTER_CONSUMER_KEY         = ''
 TWITTER_CONSUMER_SECRET      = ''
 
 ########## DJANGO_SOCIAL_AUTH SETTINGS ##########
-#LOGIN_URL          = '/auth/login/'
-#LOGIN_REDIRECT_URL = '/auth/logged/'
-#LOGIN_ERROR_URL    = '/auth/error/'
+LOGIN_URL          = '/auth/login/'
+LOGIN_REDIRECT_URL = '/auth/logged/'
+LOGIN_ERROR_URL    = '/auth/error/'
 
-#SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
-# SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'associate_complete'
-# SOCIAL_AUTH_COMPLETE_URL_NAME  = 'complete'
-# SOCIAL_AUTH_CREATE_USERS = False
-# SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
-# SOCIAL_AUTH_ERROR_KEY = 'social_errors'
-#SOCIAL_AUTH_EXPIRATION = 'expires'
-# SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+##SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
+#SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'associate_complete'
+#SOCIAL_AUTH_COMPLETE_URL_NAME  = 'complete'
+#SOCIAL_AUTH_CREATE_USERS = False
+#SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
+#SOCIAL_AUTH_ERROR_KEY = 'social_errors'
+##SOCIAL_AUTH_EXPIRATION = 'expires'
+##SOCIAL_AUTH_RAISE_EXCEPTIONS = False
