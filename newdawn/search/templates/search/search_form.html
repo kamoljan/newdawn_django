@@ -6,19 +6,13 @@
 
 {% block content %}
     {% for ad in ads %}
-        {% comment %}<a class="ad_link" href="{% url 'ad:view' ad.id %}">{{ ad.subject }}</a>{% endcomment %}
         <div class="ad-single">
             <a class="img" href="{% url 'ad:view' ad.id %}">
-                <img src="{{ SUSHI_PUBLIC_URL }}{{ ad.image_fid }}" alt="title"/>
+                <img src="{{ SUSHI_PUBLIC_URL }}{{ ad.image_fid }}" alt="{{ ad.subject }}"/>
             </a>
-            <br />
-            <a class="desc-ad" href="{% url 'ad:view' ad.id %}">{{ ad.subject }}</a>
-            <br />
             <div class="location-categ">
-                Category name
-                <span>
-                    <a class="location sprite" href="#">&nbsp;</a>
-                </span>
+	      <a href="{% url 'ad:view' ad.id %}">{{ ad.subject }}</a>
+	      &#36;{{ ad.price }}
             </div>
         </div>
     {% endfor %}
