@@ -49,7 +49,8 @@ class AdFormView(LoginRequiredMixin, AdActionMixin, FormView):
 		return self.render_to_response({'form': AdForm()})
 
 
-class AdView(LoginRequiredMixin, AdActionMixin, DetailView):
+#class AdView(LoginRequiredMixin, AdActionMixin, DetailView):
+class AdView(AdActionMixin, DetailView):
 	model = Ad
 
 	def get_context_data(self, **kwargs):
