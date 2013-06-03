@@ -18,9 +18,9 @@
     {% endfor %}
 <script src="{{ STATIC_URL }}js/jquery.masonry.min.js"></script>
 <script>
-$(function(){
+jQuery(function(){
 
-    $('#content').masonry({
+    jQuery('#content').masonry({
       itemSelector: '.ad-single',
       columnWidth: 0,
       isAnimated: true
@@ -28,8 +28,8 @@ $(function(){
 
   });
      var $container = $('#content');
-$container.imagesLoaded(function(){
-  $container.masonry({
+     $container.imagesLoaded(function(){
+     $container.masonry({
         itemSelector : '.ad-single',
         columnWidth : 0,
         gutterWidth: 0
