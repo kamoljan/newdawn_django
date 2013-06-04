@@ -1,18 +1,54 @@
 {% extends "base.html" %}
 
-{% block title %} {{ ad.subject }} {% endblock %}
+    {% block content %}	
+    <div class="content-left-div">
+       	<div class="content-left-head ">
+                <span class="back-to-home"><a class="back_icon sprite" href="#">Back</a></span>
+                <span class="share_"><a class="share_icon sprite" href="#">Share</a>
+            </div>
+            <div class="content-left">
+            	<div class="img-ad" id="img-ad">
+                	<div id="images">
+			<img src="{{ SUSHI_PUBLIC_URL }}{{ ad.image_fid }}" />
+                    </div>
+                    <div id="video">
+<img src="image/3.png" alt="ad image"/>
+                    </div>
+                    <div id="maps">
+<img src="image/3.png" alt="ad image"/>
+                    </div>
+                    
+                    <ul>
+                        <li class="active-tab "><a class="images_ sprite" href="#images"><span>Images</span></a></li>
+                        <li><a class="video_ sprite" href="#video"><span>Video</a> </span></li>
+                        <li><a class="where_ sprite" href="#maps"><span >Where</a></span></li>
+                    </ul>
+             </div>
 
-{% block page_title %} {{ ad.subject }} {% endblock page_title %}
+             <div class="desc">
+		    <h1>{% block page_title %} {{ ad.subject }} {% endblock page_title %}</h1>
+                    <span>Posted by <a href="#">Name of organization/person</a> at 10:30 am</span>
+                    <p>{{ ad.body }}</p>
+             </div>
+	</div>
+</div>
+ <div class="right-sidebar">
+        <h3>Other ads from this publishers</h3>
+        <a href="#"><img src="image/2.png" alt="" /> </a>
+        <a href="#"><img src="image/1.png" alt="" /> </a>
+        <a href="#"><img src="image/3.png" alt="" /> </a>
+        <a href="#"><img src="image/3.png" alt="" /> </a>
+ </div>
 
-{% block content %}
-<img src="{{ SUSHI_PUBLIC_URL }}{{ ad.image_fid }}" />
-<br />
-{{ ad.body }}
-<br />
 {% endblock content %}
 
 {% block extra_js %}
 <!--http://webpjs.appspot.com/-->
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+  jQuery(function() {
+    jQuery("#img-ad" ).tabs();
+  }); </script>
 <script>(function(){var WebP=new Image();WebP.onload=WebP.onerror=function(){
 if(WebP.height!=2){var sc=document.createElement('script');sc.type='text/javascript';sc.async=true;
 var s=document.getElementsByTagName('script')[0];sc.src='{{ SUSHI_PUBLIC_URL }}js/webpjs-0.0.2.min.js';s.parentNode.insertBefore(sc,s);}};

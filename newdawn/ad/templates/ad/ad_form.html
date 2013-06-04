@@ -5,6 +5,7 @@
 {% block page_title %} Sell it {% endblock page_title %}
 
 {% block content %}
+<div class="ad-insert">
 <form enctype="multipart/form-data" action="." method="post">{% csrf_token %}
     {{ form.as_p }}
 	<p id="result">
@@ -15,6 +16,7 @@
 	</p>
     <button type="submit">Sell it</button>
 </form>
+</div>
 {% endblock content %}
 
 {% block extra_js %}

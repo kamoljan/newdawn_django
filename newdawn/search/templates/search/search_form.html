@@ -10,9 +10,9 @@
             <a class="img" href="{% url 'ad:view' ad.id %}">
                 <img src="{{ SUSHI_PUBLIC_URL }}{{ ad.image_fid }}" alt="{{ ad.subject }}"/>
             </a>
-            <div class="location-categ">
+            <div class="desc-price">
 	      <a href="{% url 'ad:view' ad.id %}">{{ ad.subject }}</a>
-	      &#36;{{ ad.price }}
+	      <span> &#36;{{ ad.price }}</span>
             </div>
         </div>
     {% endfor %}
@@ -22,16 +22,16 @@ jQuery(function(){
 
     jQuery('#content').masonry({
       itemSelector: '.ad-single',
-      columnWidth: 0,
-      isAnimated: true
+columnWidth:1
+      
     });
-
+    
   });
      var $container = $('#content');
-     $container.imagesLoaded(function(){
-     $container.masonry({
+$container.imagesLoaded(function(){
+  $container.masonry({
         itemSelector : '.ad-single',
-        columnWidth : 0,
+        columnWidth : 1,
         gutterWidth: 0
   });
 });

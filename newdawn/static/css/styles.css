@@ -1,9 +1,10 @@
 @charset "utf-8";
 body{background:url(../img/bg.jpg) repeat; font-size:13px; font-family:Arial, Helvetica, sans-serif;}
-.wrapper{background:url(../img/h-bg.png) repeat-x top center;width:100%;float:left;}
 #header {
-    height: 72px; margin-bottom: 30px;
-}
+background:#3f83ad;padding:0 2%;float:left; width:96% !important; 
+	-webkit-box-shadow:0 2px 8px #888;
+	-moz-box-shadow:0 2px 8px #888;
+	box-shadow:0 2px 8px #888;}
 .sprite{
 	display:block;
 	background-image:url(../img/sprite.png);
@@ -12,30 +13,31 @@ body{background:url(../img/bg.jpg) repeat; font-size:13px; font-family:Arial, He
 #content{
 	clear: both;
 	}
-.nav-div{margin-right: 8px;
-position:relative;
-
-
+.nav-div{
+position:relative;border-left: 1px solid #478EB9;
 	}	
 .nav-icon {
-
-    height: 50px;
-    margin-top: 12px;
-	text-decoration:none;
-    width: 48px;
-	}
-
+border-left: 1px solid #2F7099;
+    color: white !important;
+    font-size: 16px;
+    padding-left: 42px;
+    padding-right: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.nav-icon.sprite > span {
+    float: left;
+   }
 .search{
-
-    height: 48px;
-    margin-top: 12px;
-	text-decoration:none;
-    width: 48px;
+text-decoration: none;
+width: 55px;
+border-left: 1px solid #2F7099;
 	}	
-.search:hover{background-position: -51px -51px;}	
+.active, .login-join:hover, .nav-div:hover,.search-div:hover{
+	background:#2F7099;
+	}	
 
-#searchSubmit {
-    display: none;
+.search-div{position:relative;border-left: 1px solid #478EB9;
 }
 .categories-h {
     border-bottom: 1px solid #1E5C82;
@@ -50,73 +52,71 @@ color: #FFFFFF;
 .searchForm #s:focus{outline:none;}
 .search2 input{margin-bottom:20px;}
 .search2 input,.searchForm #s {
+-moz-box-shadow:
+		0px 0px 0px rgba(000,000,000,0.0),
+		inset 2px 2px 4px rgba(0,0,0,0.5);
+	-webkit-box-shadow:
+		0px 0px 0px rgba(000,000,000,0.0),
+		inset 2px 2px 4px rgba(0,0,0,0.5);
+	box-shadow:
+		0px 0px 0px rgba(000,000,000,0.0),
+		inset 2px 2px 4px rgba(0,0,0,0.5);
  background: #DCDCDC;
-    border: 1px solid #1E5C82;
+    border: none;
     border-radius: 20px 20px 20px 20px;
     margin-top: 15px;
     padding: 11px 3%;
     width: 94%;}
-.nav-icon:hover{background-position: -51px 0px;}
 .logo{
-	float:left;
-height: 60px;
+	float: left;
 text-align: left;
-	}	
+	}
+	.logo span {
+    margin-top: 4px;
+}
 .logo a{
-padding-bottom: 13px;
-	background: url(../img/logo.png) no-repeat;
 	color: #FFFFFF;
     float: left;
-    font-family: Banda Regular,"Times New Roman",Times,serif;
-    font-size: 30px;
-padding-left: 90px;;
-    padding-top: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+padding-left: 60px;;
     text-decoration: none;height:27px;
 }	
-.add-ad a:hover{color:#fff !important;}
+
 .logo a:hover{color:#fff;}	
+.login-join a {
+         color: #FFFFFF;
+    float: left;
+    font-size: 16px;
+    padding-left: 40px;
+    padding-right: 10px;
+    text-decoration: none;
+	border-left: 1px solid #2F7099;
+}
+.login-join{border-left: 1px solid #478EB9;float:right;}
+.login-join span {
+    float: left;
+}
 
 .add-ad {
     float: right;
-    margin-top:15px;
-	background:#3fcb1c;
-	background: -moz-linear-gradient(
-		top,
-		#3ecf1d 0%,
-		#40ac15);
-	background: -webkit-gradient(
-		linear, left top, left bottom, 
-		from(#3ecf1d),
-		to(#40ac15));
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
-	border-radius: 6px;
-	border: 4px solid #17557c;
-	-moz-box-shadow:
-		0px 0px 0px rgba(000,000,000,0),
-		inset 0px 0px 2px rgba(255,255,255,0.6);
-	-webkit-box-shadow:
-		0px 0px 0px rgba(000,000,000,0),
-		inset 0px 0px 2px rgba(255,255,255,0.6);
-	box-shadow:
-		0px 0px 0px rgba(000,000,000,0),
-		inset 0px 0px 2px rgba(255,255,255,0.6);
+border-left: 1px solid #478EB9;
 }
 .add-ad:hover{
 	background:#3fcb1c;
 	}
-.add-ad a{height: 26px;
-	background-position: 9px -100px;
-	color: #fff;
-	text-decoration: none;
-	padding: 4px 2px 4px 35px;
-	font-size: 22px;	
-	font-family: Banda Regular,"Times New Roman",Times,serif;	
+.add-ad a{
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 0 10px 0 38px;
+    text-decoration: none;
+    text-transform: uppercase;
+	border-left: 1px solid #2F7099;
 		}	
-		.add-ad a span{padding-right:8px;}
-		
-.ad-single {
-	clear: both;
+.add-ad a span {
+    float: left;
+}		
+.ad-single {	clear: both;
     float: left;
  	background:#fff;
 line-height: 1.4em;
@@ -169,7 +169,7 @@ line-height: 1.4em;
 	color:#0c84c9;
 	}
 .img{padding:0 !important;}
-.location-categ {
+.desc-price{
     background: #F7F7F7;
     float: left;
      padding: 7px 5% 5px;
@@ -188,9 +188,10 @@ line-height: 1.4em;
 margin-top: -2px;
 	}
 .location:hover{background-position: -11px -425px;}	
-.location-categ span {
-    float: right;
-}
+.desc-price span {
+float: left;
+color: black;
+font-weight: bold;}
 .content-left-div{
 	float: left;
 	margin-left: 0;
@@ -424,7 +425,7 @@ padding:10px 5px 9px 35px;
 .search2,.nav-div-ul{
 float:left;
 width:100%;
- background: #246892;
+ background: #2F7099;
         box-shadow:0px 2px 5px rgba(000,000,000,0.4);;
         display: none;
     position:relative;
@@ -447,8 +448,8 @@ font-size: 15px;
 	display:block;
 	}
 .nav li a{padding: 0 10px;
-border-bottom: 1px solid #1E5C82;
-border-top: 1px solid #29719D;
+border-bottom: 1px solid #246086;
+border-top: 1px solid #357aa6;
 font-size: 18px;
 }
 .nav li:first-child a{
@@ -470,7 +471,9 @@ border-top:none;
 	padding:10px;
 	z-index:99999;
 	}
- 
+.search-div, .nav-div {
+    float: right;
+} 
  
 /*common styles*/
  article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
@@ -529,3 +532,24 @@ input:invalid, textarea:invalid { background-color: #f0dddd; }
 margin: 15px 5px;    float: left;
 }
 .content-header  h1{margin:0px;}
+.searchForm > #searchSubmit {
+    display: none;
+}.searchForm > #searchSubmit {
+    display: none;
+}
+.add-ad a:hover{color:#fff;}
+
+#header li {
+    list-style: none;
+}
+.desc-price > a {
+    padding: 0;
+}
+
+p label {
+    float: left;
+    width: 100%;
+}
+.ad-insert input, .ad-insert select, .ad-insert textarea {
+    width: 50%;
+}

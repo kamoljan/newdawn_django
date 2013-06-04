@@ -30,17 +30,19 @@
 	        <a class="sprite" href="{% url "socialauth_begin" "facebook" %}"><span>With Facebook</span></a>
 	    {% endif %}
         </div>
-        <div class="nav-div">
+	<ul>
+        <li class="nav-div">
                 <a class="nav-icon sprite" href="#"></a>
-            </div>
-            <div class="search-div">
+            </>
+            <li class="search-div">
                 <a class="search sprite" href="#"></a>
-            </div>
-            <div class="add-ad">
+            </li>
+            <li  class="add-ad">
 	      {% if facebook %}
 	          <a class="sprite" href="{% url 'ad:new' %}"><span>Sell it</span></a>
               {% endif %}
-	    </div>
+	    </li>
+        </ul>
         </div>
         <div class="search2">
             <form class="searchForm">
@@ -76,12 +78,17 @@
         jQuery(".nav-icon").click(function () {
             jQuery(".nav-div-ul").slideToggle(300);
             jQuery(".search2").slideUp(300);
-        });
+	     jQuery(".search-div").removeClass("active");       
+ });
         jQuery(".search").click(function () {
             jQuery(".search2").slideToggle(300);
             jQuery(".nav-div-ul").slideUp(300);
+	    jQuery(".nav-div").removeClass("active");
         });
 
+        jQuery("#header li").click(function () {
+	    jQuery(this).toggleClass("active");
+	});
     });
 </script>
 

@@ -10,7 +10,7 @@ img, object, embed, video {
 
 
 /* Mobile Layout: 480px and below. */
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 529px) {
 .gridContainer {
 	margin-left: auto;
 	margin-right: auto;
@@ -24,12 +24,12 @@ img, object, embed, video {
     width: 100%;
 }
 #header {
-	clear: both;
-	margin: 0 auto;
-	width:96%;
+clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
 	display: block;
-	height:62px !important;
-}
+	height:62px !important;}
 #content {
 	clear: both;
 	float: left;
@@ -37,20 +37,16 @@ img, object, embed, video {
 	width: 100%;
 	display: block;
 }
+.nav-icon.sprite > span{display:none;}
 .ad-single{    width:31%;margin: 0 1% 15px !important;}
 .logo span{display: none;}
-.logo{width: 90px;margin:0;}
-.search-div, .nav-div{float: right; margin-left:12px;}
-.nav-icon {
-	background-position: 14px -227px;width:35px !important;margin-top:8px !important}
-.nav-icon:hover{background-position: -37px -227px !important}
-.search{background-position:1px -178px;width:35px !important;margin-top:8px !important}
-.search:hover{background-position:-50px -178px !important;}
+.logo{width: 65px;}
+.logo a{background: url(../img/logo.png) no-repeat 0px 12px; padding-bottom: 34px;}
 .add-ad a span{display:none;}	
-.add-ad{margin-top:10px !important;}
-.wrapper {
-background: url(../img/h-bg.png) 0px -10px repeat-x !important;
-}
+.add-ad a, .nav-icon,.search,.login-join a {height:62px;}
+.login-join span {display:none;}
+
+
 .content-left-div{
 	width: 100%;
 	}
@@ -78,12 +74,28 @@ margin: 0 auto;
 margin: 0 auto;
 	}
 .search-input{left: -98px;}
+.add-ad a, .nav-icon,.search,.login-join a, .logo {height:62px;}
+.search{background-position:16px -33px;}
+.nav-icon{	background-position: 15px 24px;}
+.login-join a	{background-position: -216px 21px;}
+.add-ad a{background-position: 14px -84px;}
+.add-ad a span,.nav-icon.sprite > span,.login-join span{
+	margin-top:24px;
+	}
+.desc-price > a {
+width: 100%;
+margin-right:0%;
+}
+.desc-price span {
+width: 100%;
+}
+
 }
 /* Tablet Layout: 481px to 768px. Inherits styles from: Mobile Layout. */
 
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 530px) {
 .gridContainer {
-	width: 450px;
+	width: 100%;
 	padding-left: 5px;
 	padding-right: 5px;
 	margin:0 auto;
@@ -94,11 +106,12 @@ margin: 0 auto;
     width: 444px;
 }
 #header {
-	clear: both;
-margin: 0 auto;
-        width:444px;
+clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
 	display: block;
-}
+	height: 62px;}
 #content {
 	clear: both;
 	float: left;
@@ -106,12 +119,10 @@ margin: 0 auto;
 	width: 100%;
 	display: block;
 }
-.ad-single{width:137px;margin: 0 6.5px;}
+.ad-single{width: 30%;margin: 0 1% 15px;}
 .logo span{display: none;}
-.logo{width: 136px;margin:5px 0 0 11%;}
-.search-div, .nav-div{float: left;}
-.nav-icon {
-	background-position: 0px 0px;}
+.logo{width: 104px;}
+.logo a{background: url(../img/logo.png) no-repeat 0px 12px; padding-bottom: 34px;}
 .search{background-position:0 -51px;}
 .add-ad a span{display:block;}
 .content-left-div{
@@ -135,9 +146,25 @@ margin: 0 auto;
 	width:325px;
 	}
 
+.nav-icon.sprite > span{display:none;}
+.add-ad a, .nav-icon,.search,.login-join a, .logo {height:62px;}
+.search{background-position:16px -33px;}
+.nav-icon{	background-position: 15px 24px;}
+.login-join a	{background-position: -216px 22px;}
+.add-ad a{background-position: 14px -84px;}
+.add-ad a span,.nav-icon.sprite > span,.login-join span{
+	margin-top:24px;
+	}
+.desc-price > a {
+width: 100%;
+margin-right:0%;
+}
+.desc-price span {
+width: 100%;
+}
 
 }
-@media only screen and (min-width: 760px)  {
+@media only screen and (min-width: 785px)  {
 .gridContainer {
 	width: 732px;
 	padding-left:5px;
@@ -150,10 +177,12 @@ margin: 0 auto;
     width: 714px;
 }
 #header {
-	clear: both;
-margin: 0 auto;
-        width:730px;
+clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
 	display: block;
+	height: 40px;
 }
 #content {
 	clear: both;
@@ -164,10 +193,8 @@ margin: 0 auto;
 }
 .ad-single{    width: 231px;margin: 0 6.5px;}
 .logo span{display: block;}	
-.logo{width: 250px;margin:5px 0 0 19%;}
-.search-div, .nav-div{float: left;}
-.nav-icon {
-	background-position: 0px 0px;}
+.logo{width: 238px;}
+.logo a{background: url(../img/logo.png) no-repeat 0px 0px; padding-bottom: 13px;}
 .search{background-position:0 -51px;}
 .add-ad a span{display:block;}
 .content-left-div{
@@ -191,8 +218,24 @@ margin: 0 auto;
 .input-width select{
 	width:510px;
 	}
-
+.nav-icon.sprite > span{display:block;}
+.add-ad a, .nav-icon,.search,.login-join a, .logo {height:40px;}	
+.search{background-position: 16px -43px;}
+.nav-icon{background-position: 15px 13px;}
+.login-join a	{background-position: -216px 12px;}
+.add-ad a{background-position: 14px -97px;}
+.add-ad a span,.nav-icon.sprite > span,.login-join span{
+	margin-top:12px;
 	}
+.desc-price > a {
+width:70%;
+margin-right: 1%;
+}
+.desc-price span {
+width: 29%;
+}
+
+}
 /* Desktop Layout: 769px to a max of 1232px.  Inherits styles from: Mobile Layout and Tablet Layout. */
 @media only screen and (min-width: 1000px)  {
 	.gridContainer {
@@ -207,11 +250,12 @@ margin: 0 auto;
     width: 970px;
 }
 #header {
-	clear: both;
-margin: 0 auto;
-        width:970px;
+clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
 	display: block;
-}
+	height: 40px;}
 #content {
 	clear: both;
 	float: left;
@@ -221,10 +265,8 @@ margin: 0 auto;
 }
 .ad-single{    width: 231px;margin: 0 6.5px;}	
 .logo span{display: block;}
-.logo{width: 250px;margin:5px 0 0 26%;}
-.search-div, .nav-div{float: left;}
-.nav-icon {
-	background-position: 0px 0px;}
+.logo{width: 238px;}
+.logo a{background: url(../img/logo.png) no-repeat 0px 0px; padding-bottom: 13px;}
 .search{background-position:0 -51px;}
 .add-ad a span{display:block;}
 .content-left-div{
@@ -253,12 +295,29 @@ margin: 0 auto;
    padding: 11px 1%;
 width: 98%;
 }
+.nav-icon.sprite > span{display:block;}
+.add-ad a, .nav-icon,.search,.login-join a, .logo {height:40px;}	
+.search{background-position: 16px -43px;}
+.nav-icon{background-position: 15px 13px;}
+.login-join a	{background-position: -216px 12px;}
+.add-ad a{background-position: 14px -97px;}
+.add-ad a span,.nav-icon.sprite > span,.login-join span{
+	margin-top:12px;
+	}
+.desc-price > a {
+width: 70%;
+margin-right: 1%;
+}
+.desc-price span {
+width: 29%;
+}
+
 
 	}
-@media only screen and (min-width: 1246px) {
+@media only screen and (min-width: 1362px) {
 .gridContainer {
 
-	width: 1220px;
+	width: 1315px;
 	padding-left: 0.96%;
 	padding-right: 0.96%;
 	margin: auto;
@@ -266,14 +325,14 @@ width: 98%;
 .search2 > form,.nav {
     margin: 0 auto;
     padding: 10px 0;
-    width: 1220px;
+    width: 1300px;
 }
 #header {
-	clear: both;
-	display: block;
-margin: 0 auto;
-    width: 1220px;
-}
+clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;}
 #content {
 	clear: both;
 	float: left;
@@ -281,12 +340,10 @@ margin: 0 auto;
 	width: 100%;
 	display: block;
 }
-.ad-single{    width: 231px;margin: 0 6.5px;}
+.ad-single{    width: 250px;margin: 0 6.5px;}
 .logo span{display: block;}
-.logo{width: 250px;margin:5px 0 0 30%;}
-.search-div, .nav-div{float: left;}
-.nav-icon {
-	background-position: 0px 0px;}
+.logo{width: 250px;}
+.logo a{background: url(../img/logo.png) no-repeat 0px 0px; padding-bottom: 13px;}
 .search{background-position:0 -51px;}
 .add-ad a span{display:block;}
 .content-left-div{
@@ -314,4 +371,21 @@ margin: 0 auto;
    padding: 11px 1%;
 width: 98%;
 }
+	.nav-icon.sprite > span{display:block;}
+.add-ad a, .nav-icon,.search,.login-join a, .logo {height:40px;}	
+.search{background-position: 16px -43px;}
+.nav-icon{background-position: 15px 13px;}
+.login-join a	{background-position: -216px 12px;}
+.add-ad a{background-position: 14px -97px;}
+.add-ad a span,.nav-icon.sprite > span,.login-join span{
+	margin-top:12px;
+	}
+.desc-price > a {
+width: 70%;
+margin-right: 1%;
 }
+.desc-price span {
+width: 29%;
+}
+}
+
