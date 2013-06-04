@@ -147,6 +147,12 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 	# perms -- An instance of django.core.context_processors.PermWrapper,
 	# representing the permissions that the currently logged-in user has.
 	'django.contrib.auth.context_processors.auth',
+        
+        # https://github.com/omab/django-social-auth
+        'social_auth.context_processors.social_auth_by_name_backends',
+        'social_auth.context_processors.social_auth_backends',
+        'social_auth.context_processors.social_auth_by_type_backends',
+        'social_auth.context_processors.social_auth_login_redirect',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders

@@ -105,6 +105,35 @@ LOGIN_URL          = '/auth/login/'
 LOGIN_REDIRECT_URL = '/auth/logged/'
 LOGIN_ERROR_URL    = '/auth/error/'
 
+# Not mandatory, but recommended::
+SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
+
+# Backends will store extra values from response by default, set this to False
+# to avoid such behavior::
+SOCIAL_AUTH_EXTRA_DATA = False
+
+#- The update_user_details pipeline processor will set certain fields on user
+#  objects, such as ``email``. Set this to a list of fields you only want to
+#  set for newly created users:
+SOCIAL_AUTH_PROTECTED_USER_FIELDS = ['email',]
+
+# Session expiration time is an special value, it's recommended to define::
+SOCIAL_AUTH_EXPIRATION = 'expires'
+
+# TODO: setup in production
+#  When your project is behind a reverse proxy that uses HTTPS the redirect URIs
+#  can became with the wrong schema (``http://`` instead of ``https://``), and
+#  might cause errors with the auth process, to force HTTPS in the final URIs
+#  define this setting::
+# SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
+
+# TODO: Fire memcached
+#  The name of the last backend used to login is stored as a string in the
+#  session under the key ``social_auth_last_login_backend``, the key can be
+#  customized by defining this setting::
+SOCIAL_AUTH_LAST_LOGIN = 'social_auth_last_login_backend'
+
+
 ##SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
 #SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'associate_complete'
 #SOCIAL_AUTH_COMPLETE_URL_NAME  = 'complete'
@@ -113,3 +142,13 @@ LOGIN_ERROR_URL    = '/auth/error/'
 #SOCIAL_AUTH_ERROR_KEY = 'social_errors'
 ##SOCIAL_AUTH_EXPIRATION = 'expires'
 ##SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+
+SOCIAL_AUTH_PIPELINE = (
+# http://stackoverflow.com/questions/13018147/authalreadyassociated-exception-in-django-social-auth
+# pipeline that won't create users, just
+# accept already registered ones would look like this::
+    'social_auth.backends.pipeline.social.social_auth_user',
+    'social_auth.backends.pipeline.social.associate_user',
+    'social_auth.backends.pipeline.social.load_extra_data',
+    'social_auth.backends.pipeline.user.update_user_details',
+)
