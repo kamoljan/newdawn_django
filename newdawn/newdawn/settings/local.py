@@ -102,7 +102,8 @@ TWITTER_CONSUMER_SECRET      = ''
 
 ########## DJANGO_SOCIAL_AUTH SETTINGS ##########
 LOGIN_URL          = '/auth/login/'
-LOGIN_REDIRECT_URL = '/auth/logged/'
+# LOGIN_REDIRECT_URL = '/auth/logged/'
+LOGIN_REDIRECT_URL = '/ad/new/'
 LOGIN_ERROR_URL    = '/auth/error/'
 
 # Not mandatory, but recommended::

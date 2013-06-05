@@ -23,6 +23,7 @@
 <div class="wrapper">
     <div id="header">
         <div class="logo"><a class="brand" href="{% url 'index' %}"><span>Colek Aku</span></a></div>
+	{% comment %}
 	<div class="login-join">
 	    {% if facebook %}
 	        <a class="sprite" href="{% url 'auth:logout' %}"><span>Exit</span></a>
@@ -30,17 +31,14 @@
 	        <a class="sprite" href="{% url "socialauth_begin" "facebook" %}"><span>With Facebook</span></a>
 	    {% endif %}
         </div>
+	{% endcomment %}
 	<ul>
-        <li class="nav-div">
-                <a class="nav-icon sprite" href="#"></a>
-            </>
             <li class="search-div">
                 <a class="search sprite" href="#"></a>
             </li>
             <li  class="add-ad">
-	      {% if facebook %}
-	          <a class="sprite" href="{% url 'ad:new' %}"><span>Sell it</span></a>
-              {% endif %}
+	        {% comment %}<a class="sprite" href="{% url 'ad:new' %}"><span>Sell it</span></a>{% endcomment %}
+	        <a class="sprite" href="{% url "socialauth_begin" "facebook" %}"><span>Sell it</span></a>
 	    </li>
         </ul>
         </div>
@@ -48,15 +46,13 @@
             <form class="searchForm">
                 <input type="text" name="s" id="s" placeholder="Search"/>
                 <input type="submit" id="searchSubmit" value=""/>
-            </form>
-        </div>
-        <div class="nav-div-ul">
-            <ul class="nav">
+		<ul class="nav">
                 <!--<li class="categories-h">Categories</li>-->
                 <li><a href="{% url 'ad:new' %}">Sell it</a></li>
                 <li><a href="{% url 'search:search' %}">Search</a></li>
                 <li><a href="{% url 'admin:index' %}">Admin</a></li>
-            </ul>
+               </ul>
+            </form>
         </div>
     <div class="gridContainer clearfix">
         <div class="content-header">
@@ -75,21 +71,16 @@
     jQuery(document).ready(function ($) {
 
         /* toggle nav */
-        jQuery(".nav-icon").click(function () {
-            jQuery(".nav-div-ul").slideToggle(300);
-            jQuery(".search2").slideUp(300);
-	     jQuery(".search-div").removeClass("active");       
- });
         jQuery(".search").click(function () {
             jQuery(".search2").slideToggle(300);
-            jQuery(".nav-div-ul").slideUp(300);
-	    jQuery(".nav-div").removeClass("active");
         });
 
         jQuery("#header li").click(function () {
 	    jQuery(this).toggleClass("active");
 	});
-    });
+
+   
+ });
 </script>
 
 {% block extra_js %}{% endblock extra_js %}

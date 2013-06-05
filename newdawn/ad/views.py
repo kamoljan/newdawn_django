@@ -1,12 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from django.shortcuts import render, render_to_response
 from django.conf import settings
 from django.contrib import messages
 # from django.views.generic.edit import FormView, CreateView
 from django.views.generic import DetailView, FormView
 from django.http import HttpResponseRedirect
+from django.template import RequestContext
 
+from social_auth import __version__ as version
 from braces.views import LoginRequiredMixin
 from .forms import AdForm
 from .models import Ad
@@ -46,7 +49,12 @@ class AdFormView(LoginRequiredMixin, AdActionMixin, FormView):
 		#return super(AdFormView, self).form_valid(form)
 
 	def get(self, request):
-		return self.render_to_response({'form': AdForm()})
+		names = request.user.social_auth.values_list('provider', flat=True)
+		context = dict((name.lower().replace('-', '_'), True) for name in names)
+		context['version'] = version
+		context['last_login'] = request.session.get('social_auth_last_login_backend')
+		context['form'] = AdForm()
+		return self.render_to_response(context)
 
 
 #class AdView(LoginRequiredMixin, AdActionMixin, DetailView):

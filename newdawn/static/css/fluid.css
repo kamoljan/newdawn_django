@@ -89,7 +89,7 @@ margin-right:0%;
 .desc-price span {
 width: 100%;
 }
-
+.search2{top:62px;}
 }
 /* Tablet Layout: 481px to 768px. Inherits styles from: Mobile Layout. */
 
@@ -103,7 +103,7 @@ width: 100%;
 .search2 > form, .nav {
     margin: 0 auto;
     padding: 10px 0;
-    width: 444px;
+    width: 95%;
 }
 #header {
 clear: both;
@@ -162,6 +162,7 @@ margin-right:0%;
 .desc-price span {
 width: 100%;
 }
+.search2{top:62px;}
 
 }
 @media only screen and (min-width: 785px)  {
@@ -234,6 +235,7 @@ margin-right: 1%;
 .desc-price span {
 width: 29%;
 }
+.search2{top:40px;}
 
 }
 /* Desktop Layout: 769px to a max of 1232px.  Inherits styles from: Mobile Layout and Tablet Layout. */
@@ -311,6 +313,7 @@ margin-right: 1%;
 .desc-price span {
 width: 29%;
 }
+.search2{top:40px;}
 
 
 	}
@@ -387,5 +390,7 @@ margin-right: 1%;
 .desc-price span {
 width: 29%;
 }
+.search2{top:40px;}
+
 }
 

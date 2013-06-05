@@ -426,11 +426,12 @@ padding:10px 5px 9px 35px;
 float:left;
 width:100%;
  background: #2F7099;
-        box-shadow:0px 2px 5px rgba(000,000,000,0.4);;
+        box-shadow:0px 3px 2px rgba(000,000,000,0.4);
+	-moz-box-shadow:0px 3px 2px rgba(000,000,000,0.4);
+	-webkit-box-shadow:0px 3px 2px rgba(000,000,000,0.4);
         display: none;
-    position:relative;
-        z-index:99998;
-
+        z-index:99999;
+position:fixed;
 }
 
 .nav li a {
@@ -529,7 +530,7 @@ input:invalid, textarea:invalid { background-color: #f0dddd; }
   h2, h3 { page-break-after: avoid; }
 }
 .content-header {
-margin: 15px 5px;    float: left;
+margin: 65px 5px 15px;    float: left;
 }
 .content-header  h1{margin:0px;}
 .searchForm > #searchSubmit {
@@ -552,4 +553,12 @@ p label {
 }
 .ad-insert input, .ad-insert select, .ad-insert textarea {
     width: 50%;
+}
+#header {
+    position: fixed;
+    z-index: 99998;
+top:0px;
+}
+.wrapper {
+    position: relative;
 }
