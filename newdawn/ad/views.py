@@ -1,20 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from django.shortcuts import render, render_to_response
+import logging
+
 from django.conf import settings
 from django.contrib import messages
-# from django.views.generic.edit import FormView, CreateView
 from django.views.generic import DetailView, FormView
 from django.http import HttpResponseRedirect
-from django.template import RequestContext
-
-from social_auth import __version__ as version
 from braces.views import LoginRequiredMixin
-from .forms import AdForm
-from .models import Ad
+
 from common.libs.sushiapi import save_image_to_sushi_with_string
 from common.libs.utils import generate_secret_token
+
+from .forms import AdForm
+from .models import Ad
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
 
 
 class AdActionMixin(object):
@@ -46,18 +48,20 @@ class AdFormView(LoginRequiredMixin, AdActionMixin, FormView):
 		ad.secret_token = generate_secret_token()
 		ad.save()
 		return HttpResponseRedirect('/')  # Redirect after POST
-		#return super(AdFormView, self).form_valid(form)
 
 	def get(self, request):
-		names = request.user.social_auth.values_list('provider', flat=True)
-		context = dict((name.lower().replace('-', '_'), True) for name in names)
-		context['version'] = version
-		context['last_login'] = request.session.get('social_auth_last_login_backend')
-		context['form'] = AdForm()
-		return self.render_to_response(context)
+		email = ''
+		user_name = request.user.username
+		provider_string = ''
+		if user_name != '':
+			email = request.user.email
+			provider = request.user.social_auth.values_list('provider', flat=True)
+			for name in provider:
+				provider_string += name.lower().replace('-', '_')
+
+		return self.render_to_response({'form': AdForm(initial={'user_email': email})})
 
 
-#class AdView(LoginRequiredMixin, AdActionMixin, DetailView):
 class AdView(AdActionMixin, DetailView):
 	model = Ad
 

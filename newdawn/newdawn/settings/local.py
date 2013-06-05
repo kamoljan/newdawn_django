@@ -10,6 +10,11 @@ from base import *
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = True
 
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
+    'ENABLE_STACKTRACES': True,
+}
+
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
 TEMPLATE_DEBUG = DEBUG
 ########## END DEBUG CONFIGURATION
@@ -153,3 +158,6 @@ SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.social.load_extra_data',
     'social_auth.backends.pipeline.user.update_user_details',
 )
+
+
+
