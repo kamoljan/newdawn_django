@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
-{% block heading %}Login using any of the following methods{% endblock %}
+{% block title %}Login using any of the following methods{% endblock title %}
+{% block page_title %}{% endblock page_title %}
 
 {% block content %}
 <center>
+      <hr />
       <div class="auth">
         <div class="auth1">
           <a class="facebook" rel="nofollow" href="{% url 'socialauth_begin' 'facebook' %}">
@@ -12,11 +14,12 @@
           </div>
         <div class="auth2">
           <a class="google" rel="nofollow" href="{% url 'socialauth_begin' 'google-oauth2' %}">
-          <span class="g-icon"></span><span class="g-text">Log in with Facebook</span>
+          <span class="g-icon"></span><span class="g-text">Log in with Google</span>
           </a>
           </div>
       </div>
       <hr />
+{% comment %}
       <div class="login">
       <form>
         <label>Email: </label>
@@ -31,6 +34,6 @@
        <div class="clear"></div>
        <hr />
       </div>
-      <button class="join">Join to ColekAku</button>
+{% endcomment %}
     </center>
 {% endblock %}
