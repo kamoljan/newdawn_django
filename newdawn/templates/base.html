@@ -33,12 +33,11 @@
         </ul>
         </div>
         <div class="search2">
-            <form class="searchForm">
-                <input type="text" name="s" id="s" placeholder="Search"/>
+            <form action="{% url 'search:search' %}" method="get" class="searchForm">
+                <input type="text" name="query" id="query" placeholder="Search"/>
                 <input type="submit" id="searchSubmit" value=""/>
 		<ul class="nav">
-                <li><a href="{% url 'search:search' %}">Search</a></li>
-                <li><a href="{% url 'admin:index' %}">Admin</a></li>
+                <li><a href="{% url 'search:search' %}">New in your area</a></li>
                </ul>
             </form>
         </div>
