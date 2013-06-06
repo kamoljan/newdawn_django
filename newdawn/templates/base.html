@@ -23,22 +23,12 @@
 <div class="wrapper">
     <div id="header">
         <div class="logo"><a class="brand" href="{% url 'index' %}"><span>Colek Aku</span></a></div>
-	{% comment %}
-	<div class="login-join">
-	    {% if facebook %}
-	        <a class="sprite" href="{% url 'auth:logout' %}"><span>Exit</span></a>
-	    {% else %}
-	        <a class="sprite" href="{% url "socialauth_begin" "facebook" %}"><span>With Facebook</span></a>
-	    {% endif %}
-        </div>
-	{% endcomment %}
 	<ul>
             <li class="search-div">
                 <a class="search sprite" href="#"></a>
             </li>
             <li  class="add-ad">
-	        {% comment %}<a class="sprite" href="{% url 'ad:new' %}"><span>Sell it</span></a>{% endcomment %}
-	        <a class="sprite" href="{% url "socialauth_begin" "facebook" %}"><span>Sell it</span></a>
+	        <a class="sprite" href="{% url 'auth:login' %}"><span>Sell it</span></a>
 	    </li>
         </ul>
         </div>
@@ -47,8 +37,6 @@
                 <input type="text" name="s" id="s" placeholder="Search"/>
                 <input type="submit" id="searchSubmit" value=""/>
 		<ul class="nav">
-                <!--<li class="categories-h">Categories</li>-->
-                <li><a href="{% url 'auth:login' %}">Sell it</a></li>
                 <li><a href="{% url 'search:search' %}">Search</a></li>
                 <li><a href="{% url 'admin:index' %}">Admin</a></li>
                </ul>
@@ -69,12 +57,10 @@
 <script src="{{ STATIC_URL }}js/respond.min.js"></script>
 <script>
     jQuery(document).ready(function ($) {
-
         /* toggle nav */
         jQuery(".search").click(function () {
             jQuery(".search2").slideToggle(300);
         });
-
         jQuery("#header li").click(function () {
 	    jQuery(this).toggleClass("active");
 	});
