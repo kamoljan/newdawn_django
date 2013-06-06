@@ -22,7 +22,7 @@ def auth_logged(request):
 	context = dict((name.lower().replace('-', '_'), True) for name in names)
 	context['version'] = version
 	context['last_login'] = request.session.get('social_auth_last_login_backend')
-	return render_to_response('auth/auth_done.html', context, RequestContext(request))
+	return render_to_response('auth/auth_home.html', context, RequestContext(request))
 
 
 def auth_error(request):
