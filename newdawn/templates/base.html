@@ -48,7 +48,7 @@
                 <input type="submit" id="searchSubmit" value=""/>
 		<ul class="nav">
                 <!--<li class="categories-h">Categories</li>-->
-                <li><a href="{% url 'ad:new' %}">Sell it</a></li>
+                <li><a href="{% url 'auth:login' %}">Sell it</a></li>
                 <li><a href="{% url 'search:search' %}">Search</a></li>
                 <li><a href="{% url 'admin:index' %}">Admin</a></li>
                </ul>
@@ -78,8 +78,6 @@
         jQuery("#header li").click(function () {
 	    jQuery(this).toggleClass("active");
 	});
-
-   
  });
 </script>
 

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block heading %}Login using any of the following methods{% endblock %}
+
+{% block content %}
+<div>
+  <h3>Login using from:</h3>
+  <ul>
+    <li><a rel="nofollow" href="{% url 'socialauth_begin' 'facebook' %}">Facebook</a></li>
+    <li><a rel="nofollow" href="{% url 'socialauth_begin' 'google-oauth2' %}">Google OAuth2</a></li>
+  </ul>
+</div>
+{% endblock %}

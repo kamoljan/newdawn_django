@@ -14,7 +14,7 @@ def auth_index(request):
 	if request.user.is_authenticated():
 		return auth_logged(request)
 	else:
-		return render_to_response('auth/home.html', {'version': version}, RequestContext(request))
+		return render_to_response('auth/auth_home.html', {'version': version}, RequestContext(request))
 
 
 def auth_logged(request):

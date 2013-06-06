@@ -14,8 +14,8 @@ from .views import *
 
 urlpatterns = patterns(
     "",
-    url(regex=r'^logged/$', view=auth_logged, name="auth",),
+    url(regex=r'^logged/$', view=auth_logged, name="logged",),
     url(regex=r'^logout/$', view=auth_logout, name="logout",),
-    url(regex=r'^error/$', view=auth_error, name="auth",),
-    url(regex=r'^login/$', view=auth_index, name="auth",),
+    url(regex=r'^error/$', view=auth_error, name="error",),
+    url(regex=r'^login/$', view=auth_index, name="login",),
 )
