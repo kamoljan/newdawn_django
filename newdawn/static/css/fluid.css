@@ -61,7 +61,7 @@ clear: both;
 .content-left li a{height: 17px;
 padding-right: 15px;}
 .ad-insert form, .ad-insert h1 {
-width: 90%;
+width:100%;
 margin: 0 auto;
 }
 .input-width input,  .input-width textarea{
@@ -89,9 +89,19 @@ margin-right:0%;
 .desc-price span {
 width: 100%;
 }
-.search2{top:62px;}
 .login form {
     width: 100%;
+}
+.ad-insert{
+padding: 20px 8%;
+    width: 84%}
+.ad-insert input, .ad-insert textarea {
+    width: 94%;
+}
+.ad-insert select{width:100%;}
+.ad-insert select {padding:9px 3%;}
+.ad-insert input,.ad-insert textarea {
+    padding: 9px 3%;
 }
 
 }
@@ -99,7 +109,7 @@ width: 100%;
 
 @media only screen and (min-width: 530px) {
 .gridContainer {
-	width: 100%;
+	width: 96%;
 	padding-left: 5px;
 	padding-right: 5px;
 	margin:0 auto;
@@ -140,7 +150,7 @@ clear: both;
 .img-ad{width:100%;}
 .desc{width:100%;margin-left:0;}
 .ad-insert form, .ad-insert h1 {
-width: 80%;
+width:100%;
 margin: 0 auto;
 }
 .input-width input,  .input-width textarea{
@@ -166,10 +176,22 @@ margin-right:0%;
 .desc-price span {
 width: 100%;
 }
-.search2{top:62px;}
 .login form {
     width: 100%;
 }
+.ad-insert{
+width: 88%;
+padding: 20px 6%;}
+.ad-insert input, .ad-insert textarea {
+    width: 94%;
+}
+.ad-insert select{width:100%;}
+.ad-insert select {padding:9px 3%;}
+.ad-insert input,.ad-insert textarea {
+    padding: 9px 3%;
+}
+
+
 }
 @media only screen and (min-width: 785px)  {
 .gridContainer {
@@ -216,7 +238,7 @@ clear: both;
 .img-ad{width:100%;}
 .desc{width:100%;margin-left:0;}
 .ad-insert form, .ad-insert h1 {
-width: 80%;
+width: 100%;
 margin: 0 auto;
 }
 .input-width input,  .input-width textarea{
@@ -241,9 +263,19 @@ margin-right: 1%;
 .desc-price span {
 width: 29%;
 }
-.search2{top:40px;}
 .login form {
     width: 100%;
+}
+.ad-insert{
+width: 88%;
+padding: 20px 6%;}
+.ad-insert input, .ad-insert textarea {
+    width: 94%;
+}
+.ad-insert select{width:100.1%;}
+.ad-insert select {padding:9px 1%;}
+.ad-insert input,.ad-insert textarea {
+    padding: 9px 3%;
 }
 
 }
@@ -322,14 +354,24 @@ margin-right: 1%;
 .desc-price span {
 width: 29%;
 }
-.search2{top:40px;}
 
 .login form {
     width: 438px;
 }
+.ad-insert{
+width:94%; padding:20px 3%;
+}
+.ad-insert input, .ad-insert textarea {
+    width: 60%;
+}
+.ad-insert select{width:62.3%;}
+.ad-insert select {padding:9px 1%;}
+.ad-insert input,.ad-insert textarea {
+    padding: 9px 1%;
+}
 
 	}
-@media only screen and (min-width: 1362px) {
+@media only screen and (min-width: 1367px) {
 .gridContainer {
 
 	width: 1315px;
@@ -402,11 +444,24 @@ margin-right: 1%;
 .desc-price span {
 width: 29%;
 }
-.search2{top:40px;}
 
 .login form {
-    width: 438px;
+    width: 449px;
 }
+
+.ad-insert{
+width:94%;float:left; padding:20px 3%;
+}
+.ad-insert input, .ad-insert textarea {
+    width: 54%;
+}
+.ad-insert select{width:56.1%;}
+.ad-insert select {padding:9px 13px;}
+.ad-insert input,.ad-insert textarea {
+    padding: 9px 1%;
+}
+
+
 
 }
 
