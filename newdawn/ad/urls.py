@@ -12,4 +12,9 @@ urlpatterns = patterns("",
 		view=AdView.as_view(),
 		name="view"
 	),
+	url(
+		regex=r'^all/(?P<pk>\d+)$',
+		view=AdView.as_view(),
+		name="all"
+	),
 )

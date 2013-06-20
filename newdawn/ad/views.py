@@ -7,6 +7,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.views.generic import DetailView, FormView
 from django.http import HttpResponseRedirect
+
 from braces.views import LoginRequiredMixin
 
 from common.libs.sushiapi import save_image_to_sushi_with_string
@@ -70,4 +71,8 @@ class AdView(AdActionMixin, DetailView):
 		context = super(AdView, self).get_context_data(**kwargs)
 		# Add in a QuerySet of settings param
 		context['SUSHI_PUBLIC_URL'] = settings.SUSHI_PUBLIC_URL
+		# get common ad info
+		ad = kwargs.get('object', None)
+		context['ads'] = Ad.objects.filter(ad_status=0, user_email=ad.user_email).exclude(id=ad.id)[0:2]
+
 		return context
