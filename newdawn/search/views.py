@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import math
+
 from django.conf import settings
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+
 from common.libs.utils import cint
-from common.libs.sphinxapi import SphinxClient, SPH_SORT_ATTR_DESC
+from common.libs.sphinxapi import SphinxClient, SPH_SORT_ATTR_DESC, SPH_SORT_ATTR_ASC
 from ad.models import Ad, Category
 
 
@@ -35,7 +38,9 @@ def ad_search_get_args(request, category=0):
 	'query': request.GET.get('query', '').strip(),
 	'limit': cint(request.GET.get('limit', '50')),
 	'sort_by': request.GET.get('sort_by', 'date_desc'),
-	'start': cint(request.GET.get('start', '0'))
+	'start': cint(request.GET.get('start', '0')),
+	# 'latitude': request.GET.get('id_latitude', ''),
+	# 'longitude': request.GET.get('id_longitude', ''),
 	}
 	return args
 
@@ -65,6 +70,12 @@ def ad_search_get_context(request, args):
 	# default context
 	context = {'args': args, 'ads': [], 'total': 0}
 
+	lat = math.radians(float(request.GET.get('id_latitude', 1.0)))
+	lon = math.radians(float(request.GET.get('id_longitude', 2.0)))
+
+	# sp.SetSortMode(SPH_SORT_ATTR_DESC, '-GEODIST(latitude, longitude, %s, %s)' % (lat, lon))
+	sp.SetGeoAnchor('latitude', 'longitude', lat, lon)
+	sp.SetSortMode(SPH_SORT_ATTR_ASC, "@geodist")
 	# res = []
 	# res.append(sp.Query(args['query'].encode('utf-8'), 'newdawn_ad,delta'))
 	res = sp.Query(args['query'].encode('utf-8'), 'newdawn_ad,delta')
@@ -93,3 +104,7 @@ def ad_search_get_query_string(request):
 		if param[0] != 'start':
 			query_string = query_string + param[0] + '=' + param[1] + '&'
 	return query_string
+
+
+def to_radians(lat, lon):
+	return math.radians(lat), math.radians(lon)
