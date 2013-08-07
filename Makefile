@@ -128,7 +128,8 @@ run-indexer:
 	/usr/local/sphinx/bin/indexer delta --rotate
 
 static:
-	python${PYTHON_VERSION} ${TOPDIR}/newdawn/static.py
+	mkdir -p /var/www/colekaku.com/
+	python${PYTHON_VERSION} ${TOPDIR}/newdawn/manage.py collectstatic --link --noinput
 
 start-env: start-mysql stop-postfix start-postfix start-sushi start-searchd start
 

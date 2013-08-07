@@ -35,7 +35,7 @@ TEMPLATE_DEBUG = DEBUG
 ########## MANAGER CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = (
-	('Kamol Mavlonov', 'kamol@colekaku.com'),
+	('Kamol Mavlonov', 'kamoljan@gmail.com'),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
@@ -94,7 +94,8 @@ ADMIN_MEDIA_PREFIX = 'http://static.colekaku.com/admin/'
 
 ########## STATIC FILE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = normpath(join(SITE_ROOT, 'assets'))
+# STATIC_ROOT = normpath(join(SITE_ROOT, 'assets'))
+STATIC_ROOT = '/var/www/colekaku.com/'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 #STATIC_URL = '/static/'
@@ -202,6 +203,7 @@ DJANGO_APPS = (
 	# Admin panel and documentation:
 	'django.contrib.admin',
 	# 'django.contrib.admindocs',
+
 )
 
 AUTHENTICATION_BACKENDS = (
