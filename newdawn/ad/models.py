@@ -36,7 +36,7 @@ class Ad(models.Model):
 	AD_STATUS = ((0, 'Published'), (1, 'Refused'), (2, 'Sold'), (3, 'Deleted'))
 	ad_status = models.IntegerField(choices=AD_STATUS, default=0, db_index=True)
 	user_ip = models.GenericIPAddressField()
-	user_phone = models.CharField(max_length=32, validators=[MinLengthValidator(9), MaxLengthValidator(32)])
+	user_phone = models.CharField("Phone Number", max_length=32, validators=[MinLengthValidator(9), MaxLengthValidator(32)])
 	user_email = models.EmailField()
 	latitude = models.FloatField(blank=False, null=False)
 	longitude = models.FloatField(blank=False, null=False)
