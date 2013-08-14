@@ -53,6 +53,7 @@
                 <li><a href="{% url 'search:search' %}">New in your area</a></li>
             </ul>
         </form>
+
     </div>
     <div class="gridContainer clearfix">
         <div class="content-header">
@@ -63,9 +64,10 @@
                 <p>We are coming soon...</p>
             {% endblock content %}
         </div>
-        <!-- /conttent -->
+        <!-- /content -->
     </div>
 </div>
+<a class="feedback" href="mailto:email@echoecho.com?subject=SweetWords">Feedback</a>
 <script src="{{ STATIC_URL }}js/respond.min.js"></script>
 
 {% block extra_js %}
