@@ -1115,3 +1115,13 @@ center {
     position: absolute;
     margin-right: 5px;
 }
+
+.feedback {
+    background: #2F7099;
+    background: rgba(5, 84, 134, 0.8);
+    bottom: 0;
+    padding: 10px 10px 10px 15px;
+    position:fixed;
+    right: 0;
+    z-index: 999999;
+}
