@@ -15,7 +15,7 @@ SUNAME=admin
 SUEMAIL=kamol@${DNS}
 SUPASSWORD=12345678
 
-# runtime
+# Runtime
 PID_FILE=${TOPDIR}/var/run/newdawn.pid
 OUT_LOG=${TOPDIR}/var/logs/out.log
 ERROR_LOG=${TOPDIR}/var/logs/error.log
@@ -42,6 +42,7 @@ install:
 	${DBCOMMAND} ${DBNAME} < deployment/sql/www_categories.sql
 	@echo Creating sphinx_counter.sql...
 	${DBCOMMAND} ${DBNAME} < deployment/sql/sphinx_counter.sql
+# TODO: no need it for now
 # @echo Compile i18n messages...
 # `cd ${TOPDIR}/newdawn/ && django-admin.py compilemessages && cd ${TOPDIR}`
 	@echo Make static pages
@@ -60,9 +61,12 @@ install:
 
 start: start-fastcgi start-nginx
 	@echo Compile i18n messages...
-# TODO: dont' need it for now
+# TODO: no need it for now
 #`cd ${TOPDIR}/newdawn/ && django-admin.py compilemessages && cd ${TOPDIR}`
-	@echo NewDawn is running now, make sure your MySQL, Sphinx and Sushi is running.
+	@echo NewDawn is running now, make sure following daemons are running:
+	@echo MySQL - make start-mysql
+	@echo Sphinx - make start-searchd
+	@echo Sushi - make start-sushi
 	@echo Please add following hosts for staging server\:
 	@echo 127.0.0.1 ${DNS} www.${DNS} sushi.${DNS} static.${DNS}
 	@echo Visit http\://${DNS} to access the site
@@ -74,7 +78,6 @@ restart: stop start
 
 start-nginx:
 	cp ${TOPDIR}/deployment/conf/nginx/*.conf /usr/local/nginx/conf/
-#sed -i.bak 's:@NEWDAWN_PATH@:${TOPDIR}/newdawn:g' /usr/local/nginx/conf/static.${DNS}.conf	
 	sed -i.bak 's:@NEWDAWN_PATH@:/var/www:g' /usr/local/nginx/conf/static.${DNS}.conf	
 	sed -i.bak 's:@NEWDAWN_PATH@:/var/www:g' /usr/local/nginx/conf/sushi.${DNS}.conf	
 	sed -i.bak 's:@NEWDAWN_PATH@:${TOPDIR}/newdawn:g' /usr/local/nginx/conf/${DNS}.conf
