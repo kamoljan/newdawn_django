@@ -1,6 +1,9 @@
 TOPDIR:=$(shell pwd)
 PYTHON_VERSION=2.7
 
+# Site configurations
+DNS=colekaku.com
+
 # MySQL settings
 DBLOGIN=root
 DBPASSWORD=12345678
@@ -9,7 +12,7 @@ DBNAME=newdawn
 
 # Super user settings
 SUNAME=admin
-SUEMAIL=kamol@colekaku.com
+SUEMAIL=kamol@${DNS}
 SUPASSWORD=12345678
 
 # runtime
@@ -30,14 +33,20 @@ install:
 	echo "CREATE DATABASE ${DBNAME} CHARACTER SET utf8;" | ${DBCOMMAND}
 	@echo Sync database..
 	python${PYTHON_VERSION} ${TOPDIR}/newdawn/manage.py syncdb --noinput
+	@echo Migrate for social_auth
+	python${PYTHON_VERSION} ${TOPDIR}/newdawn/manage.py migrate --noinput
 	@echo Create super user...
 	python${PYTHON_VERSION} ${TOPDIR}/newdawn/manage.py createsuperuser --username=${SUNAME} --email=${SUEMAIL} --noinput
 	python${PYTHON_VERSION} ${TOPDIR}/newdawn/init.py ${SUNAME} ${SUPASSWORD}
+	@echo Importing www_catagories.sql...
+	${DBCOMMAND} ${DBNAME} < deployment/sql/www_categories.sql
+	@echo Creating sphinx_counter.sql...
+	${DBCOMMAND} ${DBNAME} < deployment/sql/sphinx_counter.sql
 # @echo Compile i18n messages...
 # `cd ${TOPDIR}/newdawn/ && django-admin.py compilemessages && cd ${TOPDIR}`
 	@echo Make static pages
-# TODO: static files handling
-# python${PYTHON_VERSION} ${TOPDIR}/newdawn/static.py
+	mkdir -p /var/www/${DNS}/
+	make static
 	@echo Admin Username: ${SUNAME}
 	@echo Admin Password: ${SUPASSWORD}
 
@@ -55,9 +64,9 @@ start: start-fastcgi start-nginx
 #`cd ${TOPDIR}/newdawn/ && django-admin.py compilemessages && cd ${TOPDIR}`
 	@echo NewDawn is running now, make sure your MySQL, Sphinx and Sushi is running.
 	@echo Please add following hosts for staging server\:
-	@echo 127.0.0.1 colekaku.com www.colekaku.com sushi.colekaku.com static.colekaku.com
-	@echo Visit http\://colekaku.com to access the site
-	@echo Visit http\://colekaku.com/admin to access the admin site
+	@echo 127.0.0.1 ${DNS} www.${DNS} sushi.${DNS} static.${DNS}
+	@echo Visit http\://${DNS} to access the site
+	@echo Visit http\://${DNS}/admin to access the admin site
 
 stop: stop-nginx stop-fastcgi
 
@@ -65,10 +74,10 @@ restart: stop start
 
 start-nginx:
 	cp ${TOPDIR}/deployment/conf/nginx/*.conf /usr/local/nginx/conf/
-#sed -i.bak 's:@NEWDAWN_PATH@:${TOPDIR}/newdawn:g' /usr/local/nginx/conf/static.colekaku.com.conf	
-	sed -i.bak 's:@NEWDAWN_PATH@:/var/www:g' /usr/local/nginx/conf/static.colekaku.com.conf	
-	sed -i.bak 's:@NEWDAWN_PATH@:/var/www:g' /usr/local/nginx/conf/sushi.colekaku.com.conf	
-	sed -i.bak 's:@NEWDAWN_PATH@:${TOPDIR}/newdawn:g' /usr/local/nginx/conf/colekaku.com.conf
+#sed -i.bak 's:@NEWDAWN_PATH@:${TOPDIR}/newdawn:g' /usr/local/nginx/conf/static.${DNS}.conf	
+	sed -i.bak 's:@NEWDAWN_PATH@:/var/www:g' /usr/local/nginx/conf/static.${DNS}.conf	
+	sed -i.bak 's:@NEWDAWN_PATH@:/var/www:g' /usr/local/nginx/conf/sushi.${DNS}.conf	
+	sed -i.bak 's:@NEWDAWN_PATH@:${TOPDIR}/newdawn:g' /usr/local/nginx/conf/${DNS}.conf
 	/usr/local/nginx/sbin/nginx
 
 stop-nginx:
@@ -128,7 +137,6 @@ run-indexer:
 	/usr/local/sphinx/bin/indexer delta --rotate
 
 static:
-	mkdir -p /var/www/colekaku.com/
 	python${PYTHON_VERSION} ${TOPDIR}/newdawn/manage.py collectstatic --link --noinput
 
 start-env: start-mysql stop-postfix start-postfix start-sushi start-searchd start
