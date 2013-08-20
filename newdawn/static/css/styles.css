@@ -1119,9 +1119,11 @@ center {
 .feedback {
     background: #2F7099;
     background: rgba(5, 84, 134, 0.8);
-    bottom: 0;
     padding: 10px 10px 10px 15px;
-    position:fixed;
+    position:absolute;
     right: 0;
+	bottom:-46px;
     z-index: 999999;
 }
+.nav-header{position:relative;
+float:left;width:100%;}

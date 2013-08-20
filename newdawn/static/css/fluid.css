@@ -103,7 +103,6 @@ padding: 20px 8%;
 .ad-insert input,.ad-insert textarea {
     padding: 9px 3%;
 }
-
 }
 /* Tablet Layout: 481px to 768px. Inherits styles from: Mobile Layout. */
 
@@ -191,7 +190,6 @@ padding: 20px 6%;}
     padding: 9px 3%;
 }
 
-
 }
 @media only screen and (min-width: 785px)  {
 .gridContainer {
@@ -277,7 +275,6 @@ padding: 20px 6%;}
 .ad-insert input,.ad-insert textarea {
     padding: 9px 3%;
 }
-
 }
 /* Desktop Layout: 769px to a max of 1232px.  Inherits styles from: Mobile Layout and Tablet Layout. */
 @media only screen and (min-width: 1000px)  {
@@ -369,7 +366,6 @@ width:94%; padding:20px 3%;
 .ad-insert input,.ad-insert textarea {
     padding: 9px 1%;
 }
-
 	}
 @media only screen and (min-width: 1367px) {
 .gridContainer {
@@ -460,7 +456,6 @@ width:94%;float:left; padding:20px 3%;
 .ad-insert input,.ad-insert textarea {
     padding: 9px 1%;
 }
-
 
 
 }

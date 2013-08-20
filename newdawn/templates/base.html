@@ -14,7 +14,7 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
+<!--  <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>-->
     <script src="{{ STATIC_URL }}js/jquery-v1.8.2.js"></script>
     <script>
         jQuery(document).ready(function ($) {
@@ -32,6 +32,7 @@
 </head>
 <body>
 <div class="wrapper">
+<div class="nav-header">
     <div id="header">
         <div class="logo"><a class="brand" href="{% url 'index' %}"><span>Colek Aku</span></a></div>
         <ul>
@@ -53,7 +54,8 @@
                 <li><a href="{% url 'search:search' %}">New in your area</a></li>
             </ul>
         </form>
-
+    </div>
+    <a class="feedback" href="mailto:email@echoecho.com?subject=SweetWords">Feedback</a>
     </div>
     <div class="gridContainer clearfix">
         <div class="content-header">
@@ -67,7 +69,6 @@
         <!-- /content -->
     </div>
 </div>
-<a class="feedback" href="mailto:email@echoecho.com?subject=SweetWords">Feedback</a>
 <script src="{{ STATIC_URL }}js/respond.min.js"></script>
 
 {% block extra_js %}
