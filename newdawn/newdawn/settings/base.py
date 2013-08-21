@@ -60,7 +60,7 @@ DATABASES = {
 
 ########## GENERAL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#time-zone
-TIME_ZONE = 'America/Los_Angeles'
+TIME_ZONE = 'Asia/Singapore'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
 LANGUAGE_CODE = 'en-us'
@@ -149,11 +149,11 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 	# representing the permissions that the currently logged-in user has.
 	'django.contrib.auth.context_processors.auth',
         
-        # https://github.com/omab/django-social-auth
-        'social_auth.context_processors.social_auth_by_name_backends',
-        'social_auth.context_processors.social_auth_backends',
-        'social_auth.context_processors.social_auth_by_type_backends',
-        'social_auth.context_processors.social_auth_login_redirect',
+    # https://github.com/omab/django-social-auth
+    'social_auth.context_processors.social_auth_by_name_backends',
+    'social_auth.context_processors.social_auth_backends',
+    'social_auth.context_processors.social_auth_by_type_backends',
+    'social_auth.context_processors.social_auth_login_redirect',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
@@ -226,6 +226,8 @@ THIRD_PARTY_APPS = (
 	'south',
 	# https://github.com/krvss/django-social-auth
 	'social_auth',
+    # https://github.com/tomchristie/django-rest-framework
+    'rest_framework',
 )
 
 # Apps specific for this project go here.
@@ -234,6 +236,7 @@ LOCAL_APPS = (
     'common',
     'search',
     'auth',
+    'rest',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -278,3 +281,10 @@ LOGGING = {
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
 WSGI_APPLICATION = 'wsgi.application'
 ########## END WSGI CONFIGURATION
+
+########## REST FRAMEWORK CONFIGURATION
+REST_FRAMEWORK = {
+#    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'PAGINATE_BY': 10,
+}
+########## END REST FRAMEWORK CONFIGURATION

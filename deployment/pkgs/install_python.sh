@@ -109,6 +109,13 @@ python2.7 setup.py install
 cd -
 rm -rf ./django-discover-runner-0.4
 
+# Django REST framework
+tar xvzf django-rest-framework-2.3.7.tar.gz
+cd django-rest-framework-2.3.7
+python2.7 setup.py install
+cd -
+rm -rf ./django-rest-framework-2.3.7
+
 
 cd ../
 
