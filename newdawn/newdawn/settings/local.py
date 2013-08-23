@@ -80,7 +80,7 @@ MIDDLEWARE_CLASSES += (
 ########## SUSHI CONFIGURATION
 SUSHI_SECRET_KEY = '85d617c7e82c1ec51ee00bec5dca17e4'
 SUSHI_URL = '127.0.0.1:8081'
-SUSHI_PUBLIC_URL = 'http://sushi.colekaku.com/'
+SUSHI_PUBLIC_URL = 'http://sushi.yoglam.com/'
 ########## END SUSHI CONFIGURATION
 
 ########## SPHINX CONFIGURATION

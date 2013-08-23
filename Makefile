@@ -2,7 +2,7 @@ TOPDIR:=$(shell pwd)
 PYTHON_VERSION=2.7
 
 # Site configurations
-DNS=colekaku.com
+DNS=yoglam.com
 
 # MySQL settings
 DBLOGIN=root
@@ -80,7 +80,7 @@ start-nginx:
 	cp ${TOPDIR}/deployment/conf/nginx/*.conf /usr/local/nginx/conf/
 	sed -i.bak 's:@NEWDAWN_PATH@:/var/www:g' /usr/local/nginx/conf/static.${DNS}.conf	
 	sed -i.bak 's:@NEWDAWN_PATH@:/var/www:g' /usr/local/nginx/conf/sushi.${DNS}.conf	
-	sed -i.bak 's:@NEWDAWN_PATH@:/var/www/newdawn_sencha:g' /usr/local/nginx/conf/sencha.${DNS}.conf	
+	sed -i.bak 's:@NEWDAWN_PATH@:/var/www/touch-2.2.1:g' /usr/local/nginx/conf/sencha.${DNS}.conf	
 	sed -i.bak 's:@NEWDAWN_PATH@:${TOPDIR}/newdawn:g' /usr/local/nginx/conf/${DNS}.conf
 	/usr/local/nginx/sbin/nginx
 

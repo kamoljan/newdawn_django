@@ -1,8 +1,8 @@
 SPF DNS
 ========
-colekaku.com. TXT "v=spf1 ip4:114.160.80.0/24 -all"
+yoglam.com. TXT "v=spf1 ip4:114.160.80.0/24 -all"
 
 MX DNS
 ========
-mail.colekaku.com A 114.160.80.227
-colekaku.com MX mail.colekaku.com
+mail.yoglam.com A 114.160.80.227
+yoglam.com MX mail.yoglam.com
