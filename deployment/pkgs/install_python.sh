@@ -10,11 +10,11 @@ cd -
 rm -rf ./Django-1.5.1
 
 # django social authorization
-tar xvzf django-social-auth-0.7.23.tar.gz
-cd django-social-auth-0.7.23
+tar xvzf django-social-auth-0.7.25.tar.gz
+cd django-social-auth-0.7.25
 python2.7 setup.py install
 cd -
-rm -rf ./django-social-auth-0.7.23
+rm -rf ./django-social-auth-0.7.25
 
 # PIL
 tar xvzf Imaging-1.1.7.tar.gz

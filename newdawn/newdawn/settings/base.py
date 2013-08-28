@@ -35,7 +35,7 @@ TEMPLATE_DEBUG = DEBUG
 ########## MANAGER CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = (
-	('Kamol Mavlonov', 'kamoljan@gmail.com'),
+    ('Kamol Mavlonov', 'kamoljan@gmail.com'),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
@@ -46,14 +46,14 @@ MANAGERS = ADMINS
 ########## DATABASE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.',
-		'NAME': '',
-		'USER': '',
-		'PASSWORD': '',
-		'HOST': '',
-		'PORT': '',
-	}
+    'default': {
+        'ENGINE': 'django.db.backends.',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    }
 }
 ########## END DATABASE CONFIGURATION
 
@@ -103,13 +103,13 @@ STATIC_URL = 'http://static.yoglam.com/'
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = (
-	normpath(join(SITE_ROOT, 'static')),
+    normpath(join(SITE_ROOT, 'static')),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = (
-	'django.contrib.staticfiles.finders.FileSystemFinder',
-	'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 ########## END STATIC FILE CONFIGURATION
 
@@ -124,7 +124,7 @@ SECRET_KEY = r"k8!wzy=9%$&e4q0rsmvev0yo!!22d1dq)ozd8!jq^omkfs3gh0"
 ########## FIXTURE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-FIXTURE_DIRS
 FIXTURE_DIRS = (
-	normpath(join(SITE_ROOT, 'fixtures')),
+    normpath(join(SITE_ROOT, 'fixtures')),
 )
 ########## END FIXTURE CONFIGURATION
 
@@ -132,39 +132,39 @@ FIXTURE_DIRS = (
 ########## TEMPLATE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
 TEMPLATE_CONTEXT_PROCESSORS = (
-	'django.contrib.auth.context_processors.auth',
-	'django.core.context_processors.debug',
-	'django.core.context_processors.i18n',
-	'django.core.context_processors.media',
-	'django.core.context_processors.static',
-	'django.core.context_processors.tz',
-	'django.contrib.messages.context_processors.messages',
-	'django.core.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.contrib.messages.context_processors.messages',
+    'django.core.context_processors.request',
 
-	# user -- An auth.User instance representing the currently logged-in user
-	# (or an AnonymousUser instance, if the client isn't logged in).
-	# messages -- A list of messages (as strings) that have been set
-	# via the messages framework.
-	# perms -- An instance of django.core.context_processors.PermWrapper,
-	# representing the permissions that the currently logged-in user has.
-	'django.contrib.auth.context_processors.auth',
-        
+    # user -- An auth.User instance representing the currently logged-in user
+    # (or an AnonymousUser instance, if the client isn't logged in).
+    # messages -- A list of messages (as strings) that have been set
+    # via the messages framework.
+    # perms -- An instance of django.core.context_processors.PermWrapper,
+    # representing the permissions that the currently logged-in user has.
+    'django.contrib.auth.context_processors.auth',
+
     # https://github.com/omab/django-social-auth
-    'social_auth.context_processors.social_auth_by_name_backends',
-    'social_auth.context_processors.social_auth_backends',
+    #'social_auth.context_processors.social_auth_by_name_backends',
+    #'social_auth.context_processors.social_auth_backends',
+    #'social_auth.context_processors.social_auth_login_redirect',
     'social_auth.context_processors.social_auth_by_type_backends',
-    'social_auth.context_processors.social_auth_login_redirect',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
 TEMPLATE_LOADERS = (
-	'django.template.loaders.filesystem.Loader',
-	'django.template.loaders.app_directories.Loader',
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
 TEMPLATE_DIRS = (
-	normpath(join(SITE_ROOT, 'templates')),
+    normpath(join(SITE_ROOT, 'templates')),
 )
 ########## END TEMPLATE CONFIGURATION
 
@@ -172,12 +172,12 @@ TEMPLATE_DIRS = (
 ########## MIDDLEWARE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#middleware-classes
 MIDDLEWARE_CLASSES = (
-	# Default Django middleware.
-	'django.middleware.common.CommonMiddleware',
-	'django.contrib.sessions.middleware.SessionMiddleware',
-	'django.middleware.csrf.CsrfViewMiddleware',
-	'django.contrib.auth.middleware.AuthenticationMiddleware',
-	'django.contrib.messages.middleware.MessageMiddleware',
+    # Default Django middleware.
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
 
@@ -190,42 +190,42 @@ ROOT_URLCONF = '%s.urls' % SITE_NAME
 
 ########## APP CONFIGURATION
 DJANGO_APPS = (
-	# Default Django apps:
-	'django.contrib.auth',
-	'django.contrib.contenttypes',
-	'django.contrib.sessions',
-	'django.contrib.sites',
-	'django.contrib.messages',
-	'django.contrib.staticfiles',
-	# Useful template tags:
-	# 'django.contrib.humanize',
+    # Default Django apps:
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    # Useful template tags:
+    # 'django.contrib.humanize',
 
-	# Admin panel and documentation:
-	'django.contrib.admin',
-	# 'django.contrib.admindocs',
+    # Admin panel and documentation:
+    'django.contrib.admin',
+    # 'django.contrib.admindocs',
 
 )
 
 AUTHENTICATION_BACKENDS = (
-	#'social_auth.backends.twitter.TwitterBackend',
-	'social_auth.backends.facebook.FacebookBackend',
-	#'social_auth.backends.google.GoogleOAuthBackend',
-	'social_auth.backends.google.GoogleOAuth2Backend',
-	#'social_auth.backends.google.GoogleBackend',
-	#'social_auth.backends.yahoo.YahooBackend',
-	#'social_auth.backends.contrib.linkedin.LinkedinBackend',
-	#'social_auth.backends.contrib.LiveJournalBackend',
-	#'social_auth.backends.contrib.orkut.OrkutBackend',
-	#'social_auth.backends.contrib.orkut.FoursquareBackend',
-	#'social_auth.backends.OpenIDBackend',
-	'django.contrib.auth.backends.ModelBackend',
+    #'social_auth.backends.twitter.TwitterBackend',
+    'social_auth.backends.facebook.FacebookBackend',
+    #'social_auth.backends.google.GoogleOAuthBackend',
+    'social_auth.backends.google.GoogleOAuth2Backend',
+    #'social_auth.backends.google.GoogleBackend',
+    #'social_auth.backends.yahoo.YahooBackend',
+    #'social_auth.backends.contrib.linkedin.LinkedinBackend',
+    #'social_auth.backends.contrib.LiveJournalBackend',
+    #'social_auth.backends.contrib.orkut.OrkutBackend',
+    #'social_auth.backends.contrib.orkut.FoursquareBackend',
+    #'social_auth.backends.OpenIDBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 THIRD_PARTY_APPS = (
-	# Database migration helpers:
-	'south',
-	# https://github.com/krvss/django-social-auth
-	'social_auth',
+    # Database migration helpers:
+    'south',
+    # https://github.com/krvss/django-social-auth
+    'social_auth',
     # https://github.com/tomchristie/django-rest-framework
     'rest_framework',
 )
@@ -252,27 +252,27 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
 LOGGING = {
-	'version': 1,
-	'disable_existing_loggers': False,
-	'filters': {
-		'require_debug_false': {
-			'()': 'django.utils.log.RequireDebugFalse'
-		}
-	},
-	'handlers': {
-		'mail_admins': {
-			'level': 'ERROR',
-			'filters': ['require_debug_false'],
-			'class': 'django.utils.log.AdminEmailHandler'
-		}
-	},
-	'loggers': {
-		'django.request': {
-			'handlers': ['mail_admins'],
-			'level': 'ERROR',
-			'propagate': True,
-		},
-	}
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    }
 }
 ########## END LOGGING CONFIGURATION
 
@@ -284,7 +284,91 @@ WSGI_APPLICATION = 'wsgi.application'
 
 ########## REST FRAMEWORK CONFIGURATION
 REST_FRAMEWORK = {
-#    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    #    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
     'PAGINATE_BY': 10,
 }
 ########## END REST FRAMEWORK CONFIGURATION
+
+########## DJANGO_SOCIAL_AUTH CONFIGURATION
+# DJANGO_SOCIAL_AUTH API KEYS
+FACEBOOK_APP_ID = '380944988688965'
+FACEBOOK_API_SECRET = 'a62d83696f8cdc19b52d0747ea5de26e'
+FACEBOOK_EXTENDED_PERMISSIONS = ['email']
+FOURSQUARE_CONSUMER_KEY = ''
+FOURSQUARE_CONSUMER_SECRET = ''
+GOOGLE_CONSUMER_KEY = ''
+GOOGLE_CONSUMER_SECRET = ''
+GOOGLE_OAUTH2_CLIENT_KEY = '938623095446.apps.googleusercontent.com'
+GOOGLE_OAUTH2_CLIENT_SECRET = 'eKSfEtSeJPOaC0lDHzmcyLAm'
+LINKEDIN_CONSUMER_KEY = ''
+LINKEDIN_CONSUMER_SECRET = ''
+ORKUT_CONSUMER_KEY = ''
+ORKUT_CONSUMER_SECRET = ''
+TWITTER_CONSUMER_KEY = ''
+TWITTER_CONSUMER_SECRET = ''
+
+# DJANGO_SOCIAL_AUTH URLs
+LOGIN_URL = '/auth/login/'
+# LOGIN_REDIRECT_URL = '/auth/logged/'
+LOGIN_REDIRECT_URL = '/ad/new/'
+LOGIN_ERROR_URL = '/auth/error/'
+
+# Not mandatory, but recommended::
+SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
+
+# Backends will store extra values from response by default, set this to False
+# to avoid such behavior::
+SOCIAL_AUTH_EXTRA_DATA = False
+
+#- The update_user_details pipeline processor will set certain fields on user
+#  objects, such as ``email``. Set this to a list of fields you only want to
+#  set for newly created users:
+SOCIAL_AUTH_PROTECTED_USER_FIELDS = ['email', ]
+
+# Session expiration time is an special value, it's recommended to define::
+SOCIAL_AUTH_EXPIRATION = 'expires'
+
+# TODO: setup in production
+#  When your project is behind a reverse proxy that uses HTTPS the redirect URIs
+#  can became with the wrong schema (``http://`` instead of ``https://``), and
+#  might cause errors with the auth process, to force HTTPS in the final URIs
+#  define this setting::
+# SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
+
+# TODO: Fire memcached
+#  The name of the last backend used to login is stored as a string in the
+#  session under the key ``social_auth_last_login_backend``, the key can be
+#  customized by defining this setting::
+SOCIAL_AUTH_LAST_LOGIN = 'social_auth_last_login_backend'
+
+# If you want to use the full email address as the username
+SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
+
+##SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
+#SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'associate_complete'
+#SOCIAL_AUTH_COMPLETE_URL_NAME  = 'complete'
+#SOCIAL_AUTH_CREATE_USERS = False
+#SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
+#SOCIAL_AUTH_ERROR_KEY = 'social_errors'
+##SOCIAL_AUTH_EXPIRATION = 'expires'
+##SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+
+
+# To force CSRF protection define
+SOCIAL_AUTH_FORCE_POST_DISCONNECT = True
+
+# If you want to revoke a provider's tokens on disconnect
+SOCIAL_AUTH_REVOKE_TOKENS_ON_DISCONNECT = True
+
+SOCIAL_AUTH_PIPELINE = (
+    'social_auth.backends.pipeline.social.social_auth_user',
+    'social_auth.backends.pipeline.associate.associate_by_email',
+    'social_auth.backends.pipeline.misc.save_status_to_session',
+    'auth.pipeline.redirect_to_form',
+    'auth.pipeline.username',
+    'social_auth.backends.pipeline.user.create_user',
+    'social_auth.backends.pipeline.social.associate_user',
+    'social_auth.backends.pipeline.social.load_extra_data',
+    'social_auth.backends.pipeline.user.update_user_details',
+)
+########## END DJANGO_SOCIAL_AUTH CONFIGURATION

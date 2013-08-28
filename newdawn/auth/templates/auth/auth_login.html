@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Login using any of the following methods{% endblock title %}
+{% block page_title %}{% endblock page_title %}
+
+{% block content %}
+<center>
+    <hr/>
+    <div class="auth">
+        <div class="auth1">
+            <a class="facebook" rel="nofollow" href="{% url 'socialauth_begin' 'facebook' %}">
+                <span class="f-icon"></span><span class="f-text">Log in with Facebook</span>
+            </a>
+        </div>
+        <div class="auth2">
+            <a class="google" rel="nofollow" href="{% url 'socialauth_begin' 'google-oauth2' %}">
+                <span class="g-icon"></span><span class="g-text">Log in with Google</span>
+            </a>
+        </div>
+    </div>
+    <hr/>
+    {% comment %}
+    <div class="login">
+        <form>
+            <label>Email: </label>
+            <input type="e-mail" name="firstname"><br>
+            <label>Password:</label>
+            <input type="password" name="lastname"><br>
+
+            <div class="submit-btn">
+                <input type="submit" value="Login" class="submit-login">
+            </div>
+            <a href="#">Forgot your password?</a>
+        </form>
+        <div class="clear"></div>
+        <hr/>
+    </div>
+    {% endcomment %}
+</center>
+{% endblock %}
