@@ -1126,7 +1126,7 @@ center {
     z-index: 999999;
 }
 .nav-header{
-position: fixed;
+position:relative;
     top: 0;
 float:left;
 width:100%;}
