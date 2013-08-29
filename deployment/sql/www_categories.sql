@@ -1,10 +1,14 @@
-INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Car", 1, "Car", 1);
-INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Pet", 2, "Pet", 1);
-INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Household Items", 3, "Household Items", 1);
-INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Fashion", 4, "Fashion", 1);
-INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Houses", 5, "Houses", 1);
-INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Sports", 6, "Sports", 1);
-INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Mobile Phones", 7, "Mobile Phones", 1);
-INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Babies/ Children", 8, "Babies/ Children", 1);
-INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Other Electronics", 9, "Other Electronics", 1);
-INSERT INTO www_categories (name, position, keywords, enabled) VALUES ("Hobbies & Collectibles", 10, "Hobbies & Collectibles", 1);
+INSERT INTO `www_categories` VALUES (1,'Clothes',1,'Clothes',1);
+INSERT INTO `www_categories` VALUES (2,'Accessories',2,'Accessories',1);
+INSERT INTO `www_categories` VALUES (3,'Cosmetics',3,'Cosmetics',1);
+INSERT INTO `www_categories` VALUES (4,'Mobile Phones',4,'Mobile Phones',1);
+INSERT INTO `www_categories` VALUES (5,'Babies & Children',5,'Babies & Children',1);
+INSERT INTO `www_categories` VALUES (6,'Other Electronics',6,'Other Electronics',1);
+INSERT INTO `www_categories` VALUES (7,'Household Items',7,'Household Items',1);
+INSERT INTO `www_categories` VALUES (8,'Hobbies & Collectibles',8,'Hobbies & Collectibles',1);
+INSERT INTO `www_categories` VALUES (9,'Pets',9,'Pets',1);
+INSERT INTO `www_categories` VALUES (10,'Cars',10,'Cars',1);
+INSERT INTO `www_categories` VALUES (11,'Houses',11,'Houses',1);
+INSERT INTO `www_categories` VALUES (12,'Sports',12,'Sports',1);
+
+
