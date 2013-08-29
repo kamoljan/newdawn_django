@@ -31,7 +31,8 @@
 
         <div class="desc">
             <h1>{% block page_title %} {{ ad.subject }} {% endblock page_title %}</h1>
-            <span>Posted by <a href="#">{{ ad.user }}</a> at 10:30 am</span>
+            <span>Posted by <a href="#">{{ ad.user_name }}</a> at {{ ad.created_time }}</span><br />
+            <span>Tel. <a class="share_icon" href="tel:{{ ad.user_phone }}">{{ ad.user_phone }}</a></span>
 
             <p>{{ ad.body }}</p>
         </div>
