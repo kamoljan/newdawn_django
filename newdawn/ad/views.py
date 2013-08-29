@@ -60,7 +60,8 @@ class AdFormView(LoginRequiredMixin, AdActionMixin, FormView):
             for name in provider:
                 provider_string += name.lower().replace('-', '_')
 
-        return self.render_to_response({'form': AdForm(initial={'user_email': email})})
+        return self.render_to_response({'form': AdForm(initial={'user_name': user_name,
+                                                                'user_email': email})})
 
 
 class AdView(AdActionMixin, DetailView):

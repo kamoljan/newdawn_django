@@ -7,4 +7,6 @@ urlpatterns = patterns(
     url(regex=r'^logged/$', view=auth_logged, name="logged",),
     url(regex=r'^logout/$', view=auth_logout, name="logout",),
     url(regex=r'^error/$', view=auth_error, name="error",),
+    url(regex=r'^form/$', view=form, name='form'),
+    url(regex=r'^form2/$', view=form2, name='form2'),
 )

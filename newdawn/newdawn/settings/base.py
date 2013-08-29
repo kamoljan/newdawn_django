@@ -309,7 +309,7 @@ TWITTER_CONSUMER_SECRET = ''
 
 # DJANGO_SOCIAL_AUTH URLs
 LOGIN_URL = '/auth/login/'
-# LOGIN_REDIRECT_URL = '/auth/logged/'
+#LOGIN_REDIRECT_URL = '/auth/logged/'
 LOGIN_REDIRECT_URL = '/ad/new/'
 LOGIN_ERROR_URL = '/auth/error/'
 
@@ -323,7 +323,7 @@ SOCIAL_AUTH_EXTRA_DATA = False
 #- The update_user_details pipeline processor will set certain fields on user
 #  objects, such as ``email``. Set this to a list of fields you only want to
 #  set for newly created users:
-SOCIAL_AUTH_PROTECTED_USER_FIELDS = ['email', ]
+SOCIAL_AUTH_PROTECTED_USER_FIELDS = ['email']
 
 # Session expiration time is an special value, it's recommended to define::
 SOCIAL_AUTH_EXPIRATION = 'expires'
@@ -360,7 +360,21 @@ SOCIAL_AUTH_FORCE_POST_DISCONNECT = True
 # If you want to revoke a provider's tokens on disconnect
 SOCIAL_AUTH_REVOKE_TOKENS_ON_DISCONNECT = True
 
+#SOCIAL_AUTH_PIPELINE_RESUME_ENTRY = 'social_auth.backends.pipeline.misc.save_status_to_session'
+#SOCIAL_AUTH_PIPELINE_RESUME_ENTRY = 'partial_pipeline'
+
+
 SOCIAL_AUTH_PIPELINE = (
+    #'social_auth.backends.pipeline.social.social_auth_user',
+    #'social_auth.backends.pipeline.associate.associate_by_email',
+    #'social_auth.backends.pipeline.misc.save_status_to_session',
+    #'auth.pipeline.redirect_to_form',
+    #'auth.pipeline.username',
+    #'social_auth.backends.pipeline.user.create_user',
+    #'social_auth.backends.pipeline.social.associate_user',
+    #'social_auth.backends.pipeline.social.load_extra_data',
+    #'social_auth.backends.pipeline.user.update_user_details',
+
     'social_auth.backends.pipeline.social.social_auth_user',
     'social_auth.backends.pipeline.associate.associate_by_email',
     'social_auth.backends.pipeline.misc.save_status_to_session',

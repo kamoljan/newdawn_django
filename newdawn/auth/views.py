@@ -1,11 +1,11 @@
 from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.contrib.messages.api import get_messages
 
-
 from social_auth import __version__ as version
+from social_auth.utils import setting
 
 
 def auth_index(request):
@@ -33,3 +33,25 @@ def auth_error(request):
 def auth_logout(request):
     logout(request)
     return HttpResponseRedirect('/')
+
+
+def form(request):
+    if request.method == 'POST' and request.POST.get('username'):
+        name = setting('SOCIAL_AUTH_PARTIAL_PIPELINE_KEY', 'partial_pipeline')
+        request.session['saved_username'] = request.POST['username']
+        backend = request.session[name]['backend']
+        return redirect('socialauth_complete', backend=backend)
+    return render_to_response('auth/auth_form.html', {}, RequestContext(request))
+
+
+def form2(request):
+    if request.method == 'POST' and request.POST.get('first_name'):
+        request.session['saved_first_name'] = request.POST['first_name']
+        name = setting('SOCIAL_AUTH_PARTIAL_PIPELINE_KEY', 'partial_pipeline')
+        backend = request.session[name]['backend']
+        return redirect('socialauth_complete', backend=backend)
+    return render_to_response('auth/auth_form2.html', {}, RequestContext(request))
+
+
+def close_login_popup(request):
+    return render_to_response('close_popup.html', {}, RequestContext(request))
