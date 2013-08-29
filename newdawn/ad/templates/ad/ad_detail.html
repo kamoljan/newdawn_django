@@ -1,53 +1,70 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="content-left-div">
-        <div class="content-left-head">
-            <span class="back-to-home"><a class="back_icon sprite" href="#">Back</a></span>
-            <span class="share_"><a class="share_icon sprite" href="#">Share</a></span>
+<div class="content-left-div">
+    <div class="content-left-head">
+        <span class="back-to-home"><a class="back_icon sprite" onClick="history.back();return false;">Back</a></span>
+            <span class="share_">
+                <a class="share_icon sprite" href="#" onclick="window.open(
+                        'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+                        'facebook-share-dialog',
+                        'width=626,height=436');return false;">
+                    Share on Facebook
+                </a>
+            </span>
+    </div>
+    <div class="content-left">
+        <div class="img-ad" id="img-ad">
+            <div id="images">
+                <img src="{{ SUSHI_PUBLIC_URL }}{{ ad.image_fid }}"/>
+            </div>
+            <div id="video">
+            </div>
+            <div id="maps">
+            </div>
+            <ul>
+                <li class="active-tab "><a class="images_ sprite" href="#images"><span>Images</span></a></li>
+                <li><a class="video_ sprite" href="#video"><span>Video</span></a></li>
+                <li><a class="where_ sprite" href="#maps"><span>Where</span></a></li>
+            </ul>
         </div>
-        <div class="content-left">
-            <div class="img-ad" id="img-ad">
-                <div id="images">
-                    <img src="{{ SUSHI_PUBLIC_URL }}{{ ad.image_fid }}"/>
-                </div>
-                <div id="video">
-                </div>
-                <div id="maps">
-                </div>
-                <ul>
-                    <li class="active-tab "><a class="images_ sprite" href="#images"><span>Images</span></a></li>
-                    <li><a class="video_ sprite" href="#video"><span>Video</span></a></li>
-                    <li><a class="where_ sprite" href="#maps"><span>Where</span></a></li>
-                </ul>
-            </div>
 
-            <div class="desc">
-                <h1>{% block page_title %} {{ ad.subject }} {% endblock page_title %}</h1>
-                <span>Posted by <a href="#">Name of organization/person</a> at 10:30 am</span>
+        <div class="desc">
+            <h1>{% block page_title %} {{ ad.subject }} {% endblock page_title %}</h1>
+            <span>Posted by <a href="#">{{ ad.user }}</a> at 10:30 am</span>
 
-                <p>{{ ad.body }}</p>
-            </div>
+            <p>{{ ad.body }}</p>
         </div>
     </div>
-    {% if ads %}
-    <div class="right-sidebar">
-        <h3>Other ads from the same advertiser</h3>
-        {% for adv in ads %}
-            <a href="{% url 'ad:view' adv.id %}">
-                <img src="{{ SUSHI_PUBLIC_URL }}{{ adv.image_fid }}" alt="{{ adv.subject }}"/>
-            </a>
-        {% endfor %}
-    </div>
-    {% endif %}
+</div>
+{% if ads %}
+<div class="right-sidebar">
+    <h3>Other ads from the same advertiser</h3>
+    {% for adv in ads %}
+    <a href="{% url 'ad:view' adv.id %}">
+        <img src="{{ SUSHI_PUBLIC_URL }}{{ adv.image_fid }}" alt="{{ adv.subject }}"/>
+    </a>
+    {% endfor %}
+</div>
+{% endif %}
 
 {% endblock content %}
 
 {% block extra_js %}
 <!--http://webpjs.appspot.com/-->
 <script type="text/javascript" src="{{ STATIC_URL }}/js/webpjs-0.0.2.min.js"></script>
-<script>(function(){var WebP=new Image();WebP.onload=WebP.onerror=function(){
-if(WebP.height!=2){var sc=document.createElement('script');sc.type='text/javascript';sc.async=true;
-var s=document.getElementsByTagName('script')[0];sc.src='{{ SUSHI_PUBLIC_URL }}js/webpjs-0.0.2.min.js';s.parentNode.insertBefore(sc,s);}};
-WebP.src='data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';})();</script>
+<script>(function () {
+    var WebP = new Image();
+    WebP.onload = WebP.onerror = function () {
+        if (WebP.height != 2) {
+            var sc = document.createElement('script');
+            sc.type = 'text/javascript';
+            sc.async = true;
+            var s = document.getElementsByTagName('script')[0];
+            sc.src = '{{ SUSHI_PUBLIC_URL }}js/webpjs-0.0.2.min.js';
+            s.parentNode.insertBefore(sc, s);
+        }
+    };
+    WebP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+})();</script>
 {% endblock extra_js %}
