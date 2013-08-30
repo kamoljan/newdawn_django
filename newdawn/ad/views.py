@@ -73,7 +73,7 @@ class AdView(AdActionMixin, DetailView):
         # Add in a QuerySet of settings param
         context['SUSHI_PUBLIC_URL'] = settings.SUSHI_PUBLIC_URL
         # get ad's image_fid
-        context['img_hight'] = context['ad'].image_fid.split('_')[1]
-        context['img_width'] = context['ad'].image_fid.split('_')[2]
+        context['img_width'] = context['ad'].image_fid.split('_')[1]
+        context['img_height'] = context['ad'].image_fid.split('_')[2][:-5]
 
         return context
