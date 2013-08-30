@@ -18,15 +18,6 @@
     {% endfor %}
 <script src="{{ STATIC_URL }}js/jquery.masonry.min.js"></script>
 <script>
-jQuery(function(){
-
-    jQuery('#content').masonry({
-      itemSelector: '.ad-single',
-columnWidth:1
-      
-    });
-    
-  });
      var $container = $('#content');
 $container.imagesLoaded(function(){
   $container.masonry({

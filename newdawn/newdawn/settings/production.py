@@ -48,16 +48,29 @@ SERVER_EMAIL = EMAIL_HOST_USER
 
 
 ########## DATABASE CONFIGURATION
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': os.environ['RDS_DB_NAME'],
+#        'USER': os.environ['RDS_USERNAME'],
+#        'PASSWORD': os.environ['RDS_PASSWORD'],
+#        'HOST': os.environ['RDS_HOSTNAME'],
+#        'PORT': os.environ['RDS_PORT'],
+#    }
+#}
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ['RDS_DB_NAME'],
-        'USER': os.environ['RDS_USERNAME'],
-        'PASSWORD': os.environ['RDS_PASSWORD'],
-        'HOST': os.environ['RDS_HOSTNAME'],
-        'PORT': os.environ['RDS_PORT'],
+        'NAME': 'newdawn',
+        'USER': 'root',
+        'PASSWORD': '12345678',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'OPTIONS': {'init_command': 'SET storage_engine=INNODB'}
     }
 }
+
 ########## END DATABASE CONFIGURATION
 
 
