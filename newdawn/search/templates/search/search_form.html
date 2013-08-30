@@ -8,7 +8,7 @@
     {% for ad in ads %}
         <div class="ad-single">
             <a class="img" href="{% url 'ad:view' ad.id %}">
-                <img src="{{ SUSHI_PUBLIC_URL }}{{ ad.image_fid }}" alt="{{ ad.subject }}"/>
+                <img src="{{ SUSHI_PUBLIC_URL }}{{ ad.image_fid }}" height="{{ ad.img_height }}" width="{{ ad.img_width }}" alt="{{ ad.subject }}"/>
             </a>
             <div class="desc-price">
 	      <a href="{% url 'ad:view' ad.id %}">{{ ad.subject }}</a>

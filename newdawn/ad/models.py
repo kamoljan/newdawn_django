@@ -58,3 +58,9 @@ class Ad(models.Model):
 
     def get_absolute_url(self):
         return '/ad/' + str(self.id)
+
+    def __getitem__(self, key):
+        return getattr(self, key)
+
+    def __setitem__(self, key):
+        setattr(self, key)

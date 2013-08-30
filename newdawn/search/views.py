@@ -80,8 +80,9 @@ def ad_search_get_context(request, args):
         ads = []
         for match in res['matches']:
             try:
-                # TODO: don't hard code it
                 ad = Ad.objects.get(pk=match['id'], ad_status=0)
+                ad.img_height = ad.image_fid.split('_')[1]
+                ad.img_width = ad.image_fid.split('_')[2]
                 ads.append(ad)
             except Ad.DoesNotExist, e:
                 continue

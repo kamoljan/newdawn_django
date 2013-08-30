@@ -72,8 +72,8 @@ class AdView(AdActionMixin, DetailView):
         context = super(AdView, self).get_context_data(**kwargs)
         # Add in a QuerySet of settings param
         context['SUSHI_PUBLIC_URL'] = settings.SUSHI_PUBLIC_URL
-        # get common ad info
-        ad = kwargs.get('object', None)
-        context['ads'] = Ad.objects.filter(ad_status=0, user_email=ad.user_email).exclude(id=ad.id)[0:2]
+        # get ad's image_fid
+        context['img_hight'] = context['ad'].image_fid.split('_')[1]
+        context['img_width'] = context['ad'].image_fid.split('_')[2]
 
         return context
