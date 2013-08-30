@@ -36,7 +36,7 @@ def ad_search_get_args(request, category=0):
     #'category_id': cint(request.GET.get('category_id', category_id)),
     args = {
     'query': request.GET.get('query', '').strip(),
-    'limit': cint(request.GET.get('limit', '50')),
+    'limit': cint(request.GET.get('limit', '20')),
     'sort_by': request.GET.get('sort_by', 'date_desc'),
     'start': cint(request.GET.get('start', '0')),
     }
@@ -63,7 +63,7 @@ def ad_search_get_context(request, args):
         sp.SetSortMode(SPH_SORT_ATTR_DESC, 'price')
 
     # limit
-    sp.SetLimits(args['start'], args['limit'], max(args['start'] + args['limit'], 1000))
+    sp.SetLimits(args['start'], args['limit'], max(args['start'] + args['limit'], 20))
 
     # default context
     context = {'args': args, 'ads': [], 'total': 0}
