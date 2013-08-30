@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+{% endblock extra_css %}
+
 {% block content %}
 <div class="content-left-div">
     <div class="content-left-head">
@@ -15,37 +18,40 @@
     </div>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script>
-  $(function() {
-    $( "#img-ad" ).tabs();
-  });
-  </script>
-
+$(function() {
+    $("#img-ad").tabs();
+    $("#map_clicked").click(function() {
+        loadGoogleMap();
+        return false;
+    });
+});
+</script>
     <div class="content-left">
 
         <div class="img-ad" id="img-ad">
             <div id="images">
                 <img src="{{ SUSHI_PUBLIC_URL }}{{ ad.image_fid }}"/>
             </div>
-            <div id="video">
-                <img src="{{ SUSHI_PUBLIC_URL }}{{ ad.image_fid }}"/>
-           </div>
-            <div id="maps">
-                <img src="{{ SUSHI_PUBLIC_URL }}{{ ad.image_fid }}"/>
-            </div>
+
+	    <div id="maps">
+	        <div id="map_canvas" style="width: 200px; height: 200px;"></div>
+	    </div>
+
             <ul>
                 <li class="active-tab "><a class="images_ sprite" href="#images"><span>Images</span></a></li>
-                <li><a class="video_ sprite" href="#video"><span>Video</span></a></li>
-                <li><a class="where_ sprite" href="#maps"><span>Where</span></a></li>
+                <li id="map_clicked"><a class="where_ sprite" href="#maps"><span>Where</span></a></li>
             </ul>
         </div>
 
         <div class="desc">
             <h1>{% block page_title %} {{ ad.subject }} {% endblock page_title %}</h1>
             <span>Posted by <a href="#">{{ ad.user_name }}</a> at {{ ad.created_time }}</span><br /><br />
-            <div class="phone1 contact_">Tel:. <a href="tel:{{ ad.user_phone }}">{{ ad.user_phone }}</a></div>
-	    <div class="email1 contact_">Email: <a  href="#">example@example.com</a></div>
+            <div class="phone1 contact_"><a href="tel:{{ ad.user_phone }}">Call {{ ad.user_phone }}</a></div>
+	    or
+            <div class="phone1 contact_"><a href="sms:{{ ad.user_phone }}">Message to advertiser</a></div>
             <p>{{ ad.body }}</p>
         </div>
+
     </div>
 </div>
 {% if ads %}
@@ -62,10 +68,31 @@
 {% endblock content %}
 
 {% block extra_js %}
+<script>
+<!--Google Map-->
+function initialize() {
+  var mapOptions = {
+    zoom: 8,
+    center: new google.maps.LatLng({{ ad.latitude }}, {{ ad.longitude }}),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+  var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+}
+
+function loadGoogleMap() {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' + 'callback=initialize';
+  document.body.appendChild(script);
+}
+</script>
 <!--http://webpjs.appspot.com/-->
 <script type="text/javascript" src="{{ STATIC_URL }}/js/webpjs-0.0.2.min.js"></script>
 <script>(function(){var WebP=new Image();WebP.onload=WebP.onerror=function(){
 if(WebP.height!=2){var sc=document.createElement('script');sc.type='text/javascript';sc.async=true;
 var s=document.getElementsByTagName('script')[0];sc.src='{{ SUSHI_PUBLIC_URL }}js/webpjs-0.0.2.min.js';s.parentNode.insertBefore(sc,s);}};
-WebP.src='data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';})();</script
+WebP.src='data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';})();</script>
 {% endblock extra_js %}
+
+
