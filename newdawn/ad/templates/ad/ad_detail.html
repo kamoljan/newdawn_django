@@ -13,14 +13,24 @@
                 </a>
             </span>
     </div>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+  $(function() {
+    $( "#img-ad" ).tabs();
+  });
+  </script>
+
     <div class="content-left">
+
         <div class="img-ad" id="img-ad">
             <div id="images">
                 <img src="{{ SUSHI_PUBLIC_URL }}{{ ad.image_fid }}"/>
             </div>
             <div id="video">
-            </div>
+                <img src="{{ SUSHI_PUBLIC_URL }}{{ ad.image_fid }}"/>
+           </div>
             <div id="maps">
+                <img src="{{ SUSHI_PUBLIC_URL }}{{ ad.image_fid }}"/>
             </div>
             <ul>
                 <li class="active-tab "><a class="images_ sprite" href="#images"><span>Images</span></a></li>
@@ -31,9 +41,9 @@
 
         <div class="desc">
             <h1>{% block page_title %} {{ ad.subject }} {% endblock page_title %}</h1>
-            <span>Posted by <a href="#">{{ ad.user_name }}</a> at {{ ad.created_time }}</span><br />
-            <span>Tel. <a class="share_icon" href="tel:{{ ad.user_phone }}">{{ ad.user_phone }}</a></span>
-
+            <span>Posted by <a href="#">{{ ad.user_name }}</a> at {{ ad.created_time }}</span><br /><br />
+            <div class="phone1 contact_">Tel:. <a href="tel:{{ ad.user_phone }}">{{ ad.user_phone }}</a></div>
+	    <div class="email1 contact_">Email: <a  href="#">example@example.com</a></div>
             <p>{{ ad.body }}</p>
         </div>
     </div>

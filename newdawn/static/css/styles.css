@@ -338,6 +338,7 @@ body {
 .content-left {
     padding: 15px;
     float: left
+width: 100%;
 }
 
 .img-ad, .desc {
@@ -1130,3 +1131,15 @@ position:relative;
     top: 0;
 float:left;
 width:100%;}
+
+.contact_ > a {
+    color: #7C7C7C;
+text-transform: none;
+}
+.contact_ {
+    background: #F7F7F7;
+    padding: 0px 15px;
+}
+.phone1 {padding-top:8px;}
+.email1 {padding-bottom:8px;}
+
