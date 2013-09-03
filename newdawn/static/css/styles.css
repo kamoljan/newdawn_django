@@ -186,7 +186,9 @@ body {
     -webkit-border-radius: 4px 4px 0 0;
     -moz-border-radius: 4px 4px 0 0;
     border-radius: 4px 4px 0 0;
-
+  min-height: 140px;
+height: 100%;
+display:block;
 }
 
 .masonry-brick {
