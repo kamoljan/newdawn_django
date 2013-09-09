@@ -59,12 +59,12 @@ python2.7 setup.py install
 cd -
 rm -rf ./python-memcached-1.47
 
-# sushi
-tar xvzf sushi.tar.gz
-cd sushi
+# siss
+tar xvzf siss.tar.gz
+cd siss
 python2.7 setup.py install
 cd -
-rm -rf ./sushi
+rm -rf ./siss
 
 # google data library
 tar xvzf gdata-2.0.17.tar.gz

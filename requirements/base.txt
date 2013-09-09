@@ -12,6 +12,6 @@ gdata==2.0.17
 pyjade==2.0.2
 python-memcached==1.47
 django-debug-toolbar==0.9.4
-sushi==2.0
+siss==2.0
 django-discover-runner==0.4
 tornado==3.0.1

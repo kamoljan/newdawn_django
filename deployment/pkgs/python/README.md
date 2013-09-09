@@ -5,7 +5,7 @@
 * flup-1.0.2.tar.gz
 * reportlab-2.7.tar.gz
 * tornado-3.0.1.tar.gz
-* sushi-2.0.tar.gz
+* siss-2.0.tar.gz
 
 Other helper libraries
 * django-debug-toolbar-0.9.4.tar.gz

@@ -66,9 +66,9 @@ start: start-fastcgi start-nginx
 	@echo NewDawn is running now, make sure following daemons are running:
 	@echo MySQL - make start-mysql
 	@echo Sphinx - make start-searchd
-	@echo Sushi - make start-sushi
+	@echo Siss - make start-siss
 	@echo Please add following hosts for staging server\:
-	@echo 127.0.0.1 ${DNS} www.${DNS} sushi.${DNS} static.${DNS}
+	@echo 127.0.0.1 ${DNS} www.${DNS} siss.${DNS} static.${DNS}
 	@echo Visit http\://${DNS} to access the site
 	@echo Visit http\://${DNS}/admin to access the admin site
 
@@ -79,7 +79,7 @@ restart: stop start
 start-nginx:
 	cp ${TOPDIR}/deployment/conf/nginx/*.conf /usr/local/nginx/conf/
 	sed -i.bak 's:@NEWDAWN_PATH@:/var/www:g' /usr/local/nginx/conf/static.${DNS}.conf	
-	sed -i.bak 's:@NEWDAWN_PATH@:/var/www:g' /usr/local/nginx/conf/sushi.${DNS}.conf	
+	sed -i.bak 's:@NEWDAWN_PATH@:/var/www:g' /usr/local/nginx/conf/siss.${DNS}.conf	
 	sed -i.bak 's:@NEWDAWN_PATH@:/var/www/touch-2.2.1:g' /usr/local/nginx/conf/sencha.${DNS}.conf	
 	sed -i.bak 's:@NEWDAWN_PATH@:${TOPDIR}/newdawn:g' /usr/local/nginx/conf/${DNS}.conf
 	/usr/local/nginx/sbin/nginx
@@ -111,12 +111,12 @@ start-mysql:
 stop-mysql:
 	/usr/local/mysql/bin/mysqladmin shutdown --user=${DBLOGIN} --password=${DBPASSWORD}
 
-start-sushi:
-	-mkdir /var/sushi/
-	/usr/local/bin/sushid start
+start-siss:
+	-mkdir /var/siss/
+	/usr/local/bin/sissd start
 
-stop-sushi:
-	/usr/local/bin/sushid stop
+stop-siss:
+	/usr/local/bin/sissd stop
 
 start-postfix:
 	cp ${TOPDIR}/deployment/conf/postfix/main.cf /etc/postfix/
@@ -143,6 +143,6 @@ run-indexer:
 static:
 	python${PYTHON_VERSION} ${TOPDIR}/newdawn/manage.py collectstatic --link --noinput
 
-start-env: start-mysql stop-postfix start-postfix start-sushi start-searchd start
+start-env: start-mysql stop-postfix start-postfix start-siss start-searchd start
 
-stop-env: stop stop-mysql stop-postfix stop-searchd stop-sushi
+stop-env: stop stop-mysql stop-postfix stop-searchd stop-siss

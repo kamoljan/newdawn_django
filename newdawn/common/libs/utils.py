@@ -9,13 +9,13 @@ import time
 
 
 def generate_secret_token():
-	max_range_number = 18446744073709551616L
-	raw = str(random.randrange(0, max_range_number)) + settings.SECRET_KEY + str(time.time())
-	return hashlib.sha256(raw).hexdigest()
+    max_range_number = 18446744073709551616L
+    raw = str(random.randrange(0, max_range_number)) + settings.SECRET_KEY + str(time.time())
+    return hashlib.sha256(raw).hexdigest()
 
 
 def cint(value):
-	try:
-		return int(value)
-	except:
-		return None
+    try:
+        return int(value)
+    except:
+        return None

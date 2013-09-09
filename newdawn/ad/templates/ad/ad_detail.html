@@ -30,7 +30,7 @@ $(function() {
 
         <div class="img-ad" id="img-ad">
             <div id="images">
-                <img src="{{ SUSHI_PUBLIC_URL }}{{ ad.image_fid }}" width="{{ img_width }}" height="{{ img_height }}"/>
+                <img src="{{ SISS_PUBLIC_URL }}{{ ad.image_fid }}" width="{{ img_width }}" height="{{ img_height }}"/>
             </div>
 
 	    <div id="maps">
@@ -59,7 +59,7 @@ $(function() {
     <h3>Other ads from the same advertiser</h3>
     {% for adv in ads %}
     <a href="{% url 'ad:view' adv.id %}">
-        <img src="{{ SUSHI_PUBLIC_URL }}{{ adv.image_fid }}" alt="{{ adv.subject }}"/>
+        <img src="{{ SISS_PUBLIC_URL }}{{ adv.image_fid }}" alt="{{ adv.subject }}"/>
     </a>
     {% endfor %}
 </div>
@@ -91,7 +91,7 @@ function loadGoogleMap() {
 <script type="text/javascript" src="{{ STATIC_URL }}/js/webpjs-0.0.2.min.js"></script>
 <script>(function(){var WebP=new Image();WebP.onload=WebP.onerror=function(){
 if(WebP.height!=2){var sc=document.createElement('script');sc.type='text/javascript';sc.async=true;
-var s=document.getElementsByTagName('script')[0];sc.src='{{ SUSHI_PUBLIC_URL }}js/webpjs-0.0.2.min.js';s.parentNode.insertBefore(sc,s);}};
+var s=document.getElementsByTagName('script')[0];sc.src='{{ SISS_PUBLIC_URL }}js/webpjs-0.0.2.min.js';s.parentNode.insertBefore(sc,s);}};
 WebP.src='data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';})();</script>
 {% endblock extra_js %}
 

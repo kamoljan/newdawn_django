@@ -25,7 +25,7 @@ def ad_search(request, category=None):
     'pages': range(0, context['total'], args['limit'])
     }
 
-    context['SUSHI_PUBLIC_URL'] = settings.SUSHI_PUBLIC_URL
+    context['SISS_PUBLIC_URL'] = settings.SISS_PUBLIC_URL
 
     return render_to_response('search/search_form.html', context, context_instance=RequestContext(request))
 

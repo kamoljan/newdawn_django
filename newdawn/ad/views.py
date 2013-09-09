@@ -10,7 +10,7 @@ from django.http import HttpResponseRedirect
 
 from braces.views import LoginRequiredMixin
 
-from common.libs.sushiapi import save_image_to_sushi_with_string
+from common.libs.sissapi import save_image_to_siss_with_string
 from common.libs.utils import generate_secret_token
 
 from .forms import AdForm
@@ -43,7 +43,7 @@ class AdFormView(LoginRequiredMixin, AdActionMixin, FormView):
     def form_valid(self, form):
         form = AdForm(self.request.POST, self.request.FILES)
         ad = form.save(commit=False)
-        ad.image_fid = save_image_to_sushi_with_string(self.request.FILES['image_fid'])
+        ad.image_fid = save_image_to_siss_with_string(self.request.FILES['image_fid'])
         ad.thumb_fid = ad.image_fid  # TODO: fix it later
         ad.user_ip = self.request.META['REMOTE_ADDR']
         ad.secret_token = generate_secret_token()
@@ -71,7 +71,7 @@ class AdView(AdActionMixin, DetailView):
         # Call the base implementation first to get a context
         context = super(AdView, self).get_context_data(**kwargs)
         # Add in a QuerySet of settings param
-        context['SUSHI_PUBLIC_URL'] = settings.SUSHI_PUBLIC_URL
+        context['SISS_PUBLIC_URL'] = settings.SISS_PUBLIC_URL
         # get ad's image_fid
         context['img_width'] = context['ad'].image_fid.split('_')[1]
         context['img_height'] = context['ad'].image_fid.split('_')[2][:-5]

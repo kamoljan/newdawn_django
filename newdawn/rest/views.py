@@ -24,7 +24,7 @@ def rest_search(request, category=None):
         'query_string': ad_search_get_query_string(request),
         'pages': range(0, context['total'], args['limit'])
     }
-    context['SUSHI_PUBLIC_URL'] = settings.SUSHI_PUBLIC_URL
+    context['SISS_PUBLIC_URL'] = settings.SISS_PUBLIC_URL
     return Response(context)
 
 
